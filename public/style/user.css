@@ -40,4 +40,20 @@
   align-items: center;
 }
 
+.userForm>div{
+    font-size: 1.2rem;
+    font-weight: 600;
+    /* border: 2px solid red; */
+}
+
+.genderCheckbox{
+    margin-top: 1em;
+    padding: 1em;
+}
+
+.form-select{
+    height: auto;
+    font-size: medium;
+}
+
 /* id selectors */
