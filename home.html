@@ -15,7 +15,7 @@
       integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
       crossorigin="anonymous"
     ></script>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="/public/style/style.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
@@ -27,7 +27,7 @@
       <div class="container">
         <a href="home.html" class="navbar-brand">
           <img
-            src="logo.jpg"
+            src="/public/logo.jpg"
             alt="logo"
             width="45"
             height="45"
@@ -49,10 +49,10 @@
         <div class="collapse navbar-collapse" id="toggleMobileMenu">
           <ul class="navbar-nav ms-auto text-center">
             <li class="nav-item">
-              <a href="home.html" class="nav-link active">About Us</a>
+              <a href="home.ejs" class="nav-link active">About Us</a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link">Login</a>
+              <a href="login.ejs" class="nav-link">Login</a>
             </li>
             <li class="nav-item">
               <a href="#" class="nav-link">Contact Us</a>
@@ -126,15 +126,17 @@
     <div class="container">
       <div class="row m-auto">
         <!-- Login section -->
+        <form action="/" method="post">
         <div class="col-sm-12 col-md-6">
           <h2 class="text-center">Login</h2>
           <div class="d-flex align-items-center justify-content-center m-4">
-            <a href="Adminlogin.html" class="loginLink"> Login as Admin </a>
+            <button type="submit" name="admin" formaction="/userlogin"> Login as User </button>
           </div>
           <div class="d-flex align-items-center justify-content-center m-4">
-            <a href="Userlogin.html" class="loginLink"> Login as User </a>
+            <button type="submit" name="user" formaction="/adminlogin"> Login as Admin </button>
           </div>
         </div>
+    </form>
 
         <!-- Contact Us -->
         <div class="col-sm-12 col-md-6">
