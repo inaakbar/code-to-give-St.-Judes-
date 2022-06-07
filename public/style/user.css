@@ -1,0 +1,43 @@
+/* Element selectors */
+
+/* class selectors */
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+.userFormDiv {
+  background: rgb(131, 58, 180);
+  background: linear-gradient(
+    12deg,
+    rgba(131, 58, 180, 1) 0%,
+    rgba(255, 38, 38, 1) 50%,
+    rgba(252, 176, 69, 1) 100%
+  );
+  padding: 1.2rem 1rem;
+  text-align: center;
+}
+.userForm {
+  margin: 0.3rem;
+  background: rgb(131, 58, 180);
+  background: linear-gradient(
+    12deg,
+    rgba(131, 58, 180, 1) 0%,
+    rgba(255, 38, 38, 1) 50%,
+    rgba(252, 176, 69, 1) 100%
+  );
+  border: 2px solid;
+  border: linear-gradient(
+    12deg,
+    rgba(131, 58, 180, 1) 0%,
+    rgba(255, 38, 38, 1) 50%,
+    rgba(252, 176, 69, 1) 100%
+  );
+  border-radius: 0.5rem;
+  text-align: left;
+  padding: 1.3rem 1rem;
+  align-items: center;
+}
+
+/* id selectors */

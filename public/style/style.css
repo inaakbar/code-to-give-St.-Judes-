@@ -80,10 +80,12 @@
 }
 
 .navbar-form{
-    /* background-color: red; */
     margin-left: 11rem;
-    
 }
+/* .navbar-form{
+    background-color: red;
+    margin-left: 11rem;
+} */
 
 /* Id selectors */
 #aboutUs {
