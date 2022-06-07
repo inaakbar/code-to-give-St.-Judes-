@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Home</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home Page</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -15,28 +16,31 @@
       integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
       crossorigin="anonymous"
     ></script>
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="/public/style/style.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
     />
   </head>
-  <body>
-    <!-- <nav class="navbar fixed-top navbar-expand-md navbar-dark bg-dark"> -->
+  <body id="homeBody">
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
       <div class="container">
-        <a href="home.html" class="navbar-brand">
-          <img
-            src="logo.jpg"
-            alt="logo"
-            width="45"
-            height="45"
-            class="d-inline-block align-top"
-          />
-          <span class="logoSpan">St. Judes for Life</span>
-        </a>
+          <form action="" method="post">
+              <button type="submit" name="contactUs" formaction="/"
+               class="btn btn-outline-light btn-lg nav-btn"
+              >
+                <img
+                  src="/public/logo.jpg"
+                  alt="logo"
+                  width="45"
+                  height="45"
+                  class="d-inline-block align-top"
+                />
+                <span class="logoSpan">St. Judes for Life</span>
+              </button>
+          </form>
         <button
-          class="navbar-toggler"
+          class="navbar-toggler nav-btn"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#toggleMobileMenu"
@@ -47,162 +51,135 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="toggleMobileMenu">
-          <ul class="navbar-nav ms-auto text-center">
-            <li class="nav-item">
-              <a href="home.ejs" class="nav-link active">About Us</a>
-            </li>
-            <li class="nav-item">
-              <a href="login.ejs" class="nav-link">Login</a>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">Contact Us</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a
-                href="#"
-                class="nav-link dropdown-toggle"
-                id="navbarDropdown"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Languages
-              </a>
-              <ul
-                class="dropdown-menu text-center bg-dark"
-                aria-labelledby="navbarDropdown"
-              >
-                <li><a href="#" class="nav-link">English</a></li>
-                <li><a href="#" class="nav-link">Hindi</a></li>
-              </ul>
+            <form action="" method="post" class="navbar-form">
+                <ul class="navbar-nav ms-auto text-center">
+                  <li class="nav-item">
+                    <!-- <a href="home.ejs" class="nav-link active">About Us</a> -->
+                    <button type="submit" name="home" formaction="/"
+                        class="btn btn-outline-light nav-btn"
+                    >
+                        Home
+                    </button>
+                  </li>
+                  <li class="nav-item">
+                    <!-- <a href="home.ejs" class="nav-link active">About Us</a> -->
+                    <button type="submit" name="aboutUs" formaction="/"
+                        class="btn btn-outline-light nav-btn"
+                    >
+                        About Us
+                    </button>
+                  </li>
+                  <li class="nav-item">
+                    <button type="submit" name="contactUs" formaction="/"
+                        class="btn btn-outline-light nav-btn"
+                    >
+                        Contact Us
+                    </button>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <!-- <a
+                      href="#"
+                      class="nav-link dropdown-toggle"
+                      id="navbarDropdown"
+                      role="button"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                    >
+                      Languages
+                    </a> -->
+                    <button
+                      href="#"
+                      class="dropdown-toggle btn btn-outline-light nav-btn"
+                      id="navbarDropdown"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                    >
+                      Languages
+                    </button>
+
+                    <ul
+                      class="dropdown-menu text-center bg-dark"
+                      aria-labelledby="navbarDropdown"
+                    >
+                        <li>
+                            <button type="submit" name="aboutUs" formaction="/"
+                            class="btn btn-outline-light nav-btn"
+                        >
+                            English
+                        </button>
+                        </li>
+                        <li>
+                            <button type="submit" name="aboutUs" formaction="/"
+                            class="btn btn-outline-light nav-btn"
+                        >
+                            Hindi
+                        </button>
+                        </li>
+                    </ul>
+            </form>
             </li>
           </ul>
         </div>
       </div>
     </nav>
-    <div class="row mx-auto" id="aboutUs">
-      <h2 class="text-center">About Us</h2>
-      <div class="col-sm-12 col-md-6">
-        <p class="text-sm-center text-md-start">
-          St. Judes India ChildCare Centres provide every child suffering from
-          cancer, irrespective of economic status, a chance at surviving the
-          disease and leading a full, healthy, and happy life. The children come
-          from underprivileged families who had made great sacrifices to ensure
-          that the child was treated successfully for cancer. However, there are
-          new challenges they may face while they try to become self-reliant and
-          independent. To this end, the new vertical, St. Judes for Life (SJFL)
-          will continue to provide support to those recovered as need arises.
-        </p>
-      </div>
-      <div class="col-sm-12 col-md-6 text-center">
-        <!-- images as carousel -->
-        <p class="text-center">
-          SJFL provides multiple services to the beneficiaries across 4 major
-          thematic areas:
-        </p>
-        <div class="row icon">
-          <div class="col-6 pb-6">
-            <i class="fa-solid fa-school fa-2xl"></i>
-            <div class="text-center">Education</div>
-          </div>
-          <div class="col-6">
-            <i class="fa-solid fa-briefcase-medical fa-2xl"></i>
-            <div class="text-center">Healthcare</div>
-          </div>
-        </div>
-        <div class="row icon">
-          <div class="col-6">
-            <i class="fa-solid fa-house-chimney-user fa-2xl"></i>
-            <div class="text-center">Livelihood</div>
-          </div>
-          <div class="col-6">
-            <i class="fa-solid fa-screwdriver-wrench fa-2xl"></i>
-            <div class="text-center">Life skills</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="container">
-      <div class="row m-auto">
-        <!-- Login section -->
-        <form action="/" method="post">
-        <div class="col-sm-12 col-md-6">
-          <h2 class="text-center">Login</h2>
-          <div class="d-flex align-items-center justify-content-center m-4">
-            <button type="submit" name="admin" formaction="/userlogin"> Login as User </button>
-          </div>
-          <div class="d-flex align-items-center justify-content-center m-4">
-            <button type="submit" name="user" formaction="/adminlogin"> Login as Admin </button>
-          </div>
-        </div>
-    </form>
-
-        <!-- Contact Us -->
-        <div class="col-sm-12 col-md-6">
-          <h2 class="text-center">Contact Us</h2>
-          <div class="footer-widget contact-widget">
-            <div class="widget-content">
-              <ul class="contact-info-list">
-                <li>
-                  <i class="fa-solid fa-location-dot"></i> St. Jude India ChildCare
-                  Centres
-                  <br />
-                  Cotton Green Campus,<br />
-                  Ground Floor, Mumbai Port Trust Colony,<br />
-                  ABC Colony (Rajas Nagar),<br />
-                  Zakaria Bunder Road,<br />
-                  Sewri, Mumbai 400015.
-                </li>
-                <li><i class="fa-solid fa-phone-rotary">  </i>+91 022 6666 3152</li>
-                <li>
-                    <i class="fa-solid fa-envelope"></i>
-                    <a href="mailto:contact@stjudechild.org" 
-                        target="_blank"
-                        class="Email"
-                    >contact@stjudechild.org</a
-                  >
-                </li>
-              </ul>
-              <ul class="social-icon-two d-flex mb-3 justify-content-evenly">
-                <li>
-                  <a href="https://twitter.com/StJudeChildCare" target="_blank"
-                    ><i class="fa-brands fa-twitter fa-xl"></i>
-                </a>
-                </li>
-                <li>
-                  <a href="https://www.facebook.com/StJudeIndia" target="_blank"
-                    ><i class="fa-brands fa-facebook fa-xl"></i>
-                </a>
-                </li>
-                <li>
-                  <a
-                    href="https://www.instagram.com/stjudeindia"
-                    target="_blank"
-                    ><i class="fa-brands fa-instagram fa-xl"></i>
-                </a>
-                </li>
-                <li>
-                  <a
-                    href="https://www.youtube.com/user/StJudechildcare"
-                    target="_blank"
-                    ><i class="fa-brands fa-youtube fa-xl"></i>
-                </a>
-                </li>
-                <li>
-                  <a
-                    href="https://www.linkedin.com/company/st--jude-india"
-                    target="_blank"
-                    ><i class="fa-brands fa-linkedin fa-xl"></i>
-                </a>
-                </li>
-              </ul>
+    
+    <div class="text-center HomeLogin">
+        <form class="loginForm">
+            <div class="mx-auto my-5">
+              <h2 class="text-center">Login</h2>
+              <div class="d-flex align-items-center justify-content-center m-4">
+                <button type="submit" name="admin" formaction="/userlogin"
+                class="btn btn-outline-dark btn-lg"
+                >
+                  Login as User
+                </button>
+              </div>
+              <div class="d-flex align-items-center justify-content-center m-4">
+                <button type="submit" name="user" formaction="/adminlogin"
+                    class="btn btn-outline-dark btn-lg"
+                >
+                  Login as Admin
+                </button>
+              </div>
             </div>
-          </div>
-        </div>
-      </div>
+        </form>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+
+
+    <div id="contactUs">
+        <h1>Contact Us</h1>
+        <div class="row">
+            <div class="col">
+                <i class="fa-solid fa-location-dot fa-xl"></i>
+                St. Jude India
+                ChildCare Centres
+                <br />
+                Cotton Green Campus,<br />
+                Ground Floor, Mumbai Port Trust Colony,<br />
+                ABC Colony (Rajas Nagar),<br />
+                Zakaria Bunder Road,<br />
+                Sewri, Mumbai 400015.
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <i class="fa-solid fa-phone fa-xl"></i>
+                +91 022 6666 3152
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <i class="fa-solid fa-envelope fa-lg"></i>
+                contact@stjudechild.org
+            </div>
+        </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"
+    ></script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"

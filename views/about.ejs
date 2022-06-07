@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Page</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="/public/style/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    />
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <div class="container">
+            <form action="" method="post">
+                <button type="submit" name="contactUs" formaction="/"
+                 class="btn btn-outline-light btn-lg nav-btn"
+                >
+                  <img
+                    src="/public/logo.jpg"
+                    alt="logo"
+                    width="45"
+                    height="45"
+                    class="d-inline-block align-top"
+                  />
+                  <span class="logoSpan">St. Judes for Life</span>
+                </button>
+            </form>
+          <button
+            class="navbar-toggler nav-btn"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#toggleMobileMenu"
+            aria-controls="toggleMobileMenu"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="toggleMobileMenu">
+              <form action="" method="post" class="navbar-form">
+                  <ul class="navbar-nav ms-auto text-center">
+                    <li class="nav-item">
+                      <!-- <a href="home.ejs" class="nav-link active">About Us</a> -->
+                      <button type="submit" name="home" formaction="/"
+                          class="btn btn-outline-light nav-btn"
+                      >
+                          Home
+                      </button>
+                    </li>
+                    <li class="nav-item">
+                      <!-- <a href="home.ejs" class="nav-link active">About Us</a> -->
+                      <button type="submit" name="aboutUs" formaction="/"
+                          class="btn btn-outline-light nav-btn"
+                      >
+                          About Us
+                      </button>
+                    </li>
+                    <li class="nav-item">
+                      <button type="submit" name="contactUs" formaction="/"
+                          class="btn btn-outline-light nav-btn"
+                      >
+                          Contact Us
+                      </button>
+                    </li>
+                    <li class="nav-item dropdown">
+                      <!-- <a
+                        href="#"
+                        class="nav-link dropdown-toggle"
+                        id="navbarDropdown"
+                        role="button"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                      >
+                        Languages
+                      </a> -->
+                      <button
+                        href="#"
+                        class="dropdown-toggle btn btn-outline-light nav-btn"
+                        id="navbarDropdown"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                      >
+                        Languages
+                      </button>
+  
+                      <ul
+                        class="dropdown-menu text-center bg-dark"
+                        aria-labelledby="navbarDropdown"
+                      >
+                          <li>
+                              <button type="submit" name="aboutUs" formaction="/"
+                              class="btn btn-outline-light nav-btn"
+                          >
+                              English
+                          </button>
+                          </li>
+                          <li>
+                              <button type="submit" name="aboutUs" formaction="/"
+                              class="btn btn-outline-light nav-btn"
+                          >
+                              Hindi
+                          </button>
+                          </li>
+                      </ul>
+              </form>
+              </li>
+            </ul>
+          </div>
+        </div>
+    </nav>
+
+    <div class="row mx-auto" id="aboutUs">
+        <h2 class="text-center">About Us</h2>
+        <div class="col-sm-12 col-md-6">
+          <p class="text-sm-center text-md-start">
+            St. Judes India ChildCare Centres provide every child suffering from
+            cancer, irrespective of economic status, a chance at surviving the
+            disease and leading a full, healthy, and happy life. The children come
+            from underprivileged families who had made great sacrifices to ensure
+            that the child was treated successfully for cancer. However, there are
+            new challenges they may face while they try to become self-reliant and
+            independent. To this end, the new vertical, St. Judes for Life (SJFL)
+            will continue to provide support to those recovered as need arises.
+          </p>
+        </div>
+        <div class="col-sm-12 col-md-6 text-center">
+          <!-- images as carousel -->
+          <p class="text-center">
+            SJFL provides multiple services to the beneficiaries across 4 major
+            thematic areas:
+          </p>
+          <div class="row icon">
+            <div class="col-6 pb-6">
+              <i class="fa-solid fa-school fa-2xl"></i>
+              <div class="text-center">Education</div>
+            </div>
+            <div class="col-6">
+              <i class="fa-solid fa-briefcase-medical fa-2xl"></i>
+              <div class="text-center">Healthcare</div>
+            </div>
+          </div>
+          <div class="row icon">
+            <div class="col-6">
+              <i class="fa-solid fa-house-chimney-user fa-2xl"></i>
+              <div class="text-center">Livelihood</div>
+            </div>
+            <div class="col-6">
+              <i class="fa-solid fa-screwdriver-wrench fa-2xl"></i>
+              <div class="text-center">Life skills</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"
+    ></script>
+</body>
+</html>

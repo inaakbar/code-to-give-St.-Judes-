@@ -10,24 +10,28 @@
       integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="/public/style/style.css" />
   </head>
-  <body class="adminLogin">
+  <body class="userLogin">
     
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
       <div class="container">
-        <a href="home.html" class="navbar-brand">
-          <img
-            src="logo.jpg"
-            alt="logo"
-            width="45"
-            height="45"
-            class="d-inline-block align-top"
-          />
-          <span class="logoSpan">St. Judes for Life</span>
-        </a>
+          <form action="" method="post">
+              <button type="submit" name="contactUs" formaction="/"
+               class="btn btn-outline-light btn-lg nav-btn"
+              >
+                <img
+                  src="/public/logo.jpg"
+                  alt="logo"
+                  width="45"
+                  height="45"
+                  class="d-inline-block align-top"
+                />
+                <span class="logoSpan">St. Judes for Life</span>
+              </button>
+          </form>
         <button
-          class="navbar-toggler"
+          class="navbar-toggler nav-btn"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#toggleMobileMenu"
@@ -38,43 +42,81 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="toggleMobileMenu">
-          <ul class="navbar-nav ms-auto text-center">
-            <li class="nav-item">
-              <a href="home.html" class="nav-link active">About Us</a>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">Login</a>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">Contact Us</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a
-                href="#"
-                class="nav-link dropdown-toggle"
-                id="navbarDropdown"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Languages
-              </a>
-              <ul
-                class="dropdown-menu text-center bg-dark"
-                aria-labelledby="navbarDropdown"
-              >
-                <li><a href="#" class="nav-link">English</a></li>
-                <li><a href="#" class="nav-link">Hindi</a></li>
-              </ul>
+            <form action="" method="post" class="navbar-form">
+                <ul class="navbar-nav ms-auto text-center">
+                  <li class="nav-item">
+                    <!-- <a href="home.ejs" class="nav-link active">About Us</a> -->
+                    <button type="submit" name="home" formaction="/"
+                        class="btn btn-outline-light nav-btn"
+                    >
+                        Home
+                    </button>
+                  </li>
+                  <li class="nav-item">
+                    <!-- <a href="home.ejs" class="nav-link active">About Us</a> -->
+                    <button type="submit" name="aboutUs" formaction="/"
+                        class="btn btn-outline-light nav-btn"
+                    >
+                        About Us
+                    </button>
+                  </li>
+                  <li class="nav-item">
+                    <button type="submit" name="contactUs" formaction="/"
+                        class="btn btn-outline-light nav-btn"
+                    >
+                        Contact Us
+                    </button>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <!-- <a
+                      href="#"
+                      class="nav-link dropdown-toggle"
+                      id="navbarDropdown"
+                      role="button"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                    >
+                      Languages
+                    </a> -->
+                    <button
+                      href="#"
+                      class="dropdown-toggle btn btn-outline-light nav-btn"
+                      id="navbarDropdown"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                    >
+                      Languages
+                    </button>
+
+                    <ul
+                      class="dropdown-menu text-center bg-dark"
+                      aria-labelledby="navbarDropdown"
+                    >
+                        <li>
+                            <button type="submit" name="aboutUs" formaction="/"
+                            class="btn btn-outline-light nav-btn"
+                        >
+                            English
+                        </button>
+                        </li>
+                        <li>
+                            <button type="submit" name="aboutUs" formaction="/"
+                            class="btn btn-outline-light nav-btn"
+                        >
+                            Hindi
+                        </button>
+                        </li>
+                    </ul>
+            </form>
             </li>
           </ul>
         </div>
       </div>
     </nav>
 
-    <div class="text-center form-div">
+    <div class="text-center HomeLogin">
       <form class="loginForm">
-        <img src="logo.jpg" alt="Logo" height="72" 
+        <img src="/public/logo.jpg" alt="Logo" height="72" 
         class="mt-4 mb-3" />
 
         <h1 class="h3 mb-3 font-weight-normal">Sign as Admin</h1>
@@ -83,11 +125,13 @@
         <input type="text" name="" id="UID" placeholder="Unique Id" class="form-control"
         pattern="^[a-zA-Z0-9]*$"
         required autofocus>
-        <!-- pattern attr can be removed if regex written is js -->
 
         <label for="password" class="visually-hidden">Password</label>
         <input type="password" name="" id="password" placeholder="Password" class="form-control"
-        required>
+        pattern="^[0-9]{8}"
+        required autofocus>
+        <!-- pattern attr can be removed if regex written is js -->
+
 
         <div class="mt-3">
             <button type="submit" class="btn btn-lg btn-outline-dark">Sign in</button>
