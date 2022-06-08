@@ -2,62 +2,55 @@
 
 /* class selectors */
 .center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 .userFormDiv {
-  background: rgb(131, 58, 180);
+  /* background: rgb(131, 58, 180);
   background: linear-gradient(
     12deg,
     rgba(131, 58, 180, 1) 0%,
-    rgba(255, 38, 38, 1) 50%,
-    rgba(252, 176, 69, 1) 100%
-  );
+    rgba(245, 255, 25, 0.15236427320490364) 0%
+  ); */
   padding: 1.2rem 1rem;
   text-align: center;
 }
 .userForm {
   margin: 0.3rem;
-  background: rgb(131, 58, 180);
-  background: linear-gradient(
-    12deg,
-    rgba(131, 58, 180, 1) 0%,
-    rgba(255, 38, 38, 1) 50%,
-    rgba(252, 176, 69, 1) 100%
-  );
   border: 2px solid;
-  border: linear-gradient(
-    12deg,
-    rgba(131, 58, 180, 1) 0%,
-    rgba(255, 38, 38, 1) 50%,
-    rgba(252, 176, 69, 1) 100%
-  );
   border-radius: 0.5rem;
   text-align: left;
   padding: 1.3rem 1rem;
   align-items: center;
 }
 
-.userForm>div{
-    font-size: 1.2rem;
-    font-weight: 600;
-    /* border: 2px solid red; */
+.userForm > div {
+  font-size: 1.2rem;
+  font-weight: 600;
+  /* border: 2px solid red; */
 }
 
-.genderCheckbox{
-    margin-top: 1em;
-    padding: 1em;
+.genderCheckbox {
+  margin-top: 1em;
+  padding: 1em;
 }
 
-.form-select{
-    height: auto;
-    font-size: medium;
+.form-select {
+  height: auto;
+  font-size: medium;
+}
+
+.formHeading {
+  color: orange;
+  margin: 1rem 2rem;
+  padding: 1rem 1rem;
+  font-size: 200%;
 }
 
 /* id selectors */
-#educationForm{
+#educationForm {
   padding: 4.3rem 2rem;
   /* margin: 5rem 2rem; */
 }

@@ -4,6 +4,11 @@
 } */
 
 /* class selectors */
+
+.bg-green{
+  background-color: #03371d !important;
+}
+
 .contact-info-list,
 .social-icon-two {
   list-style: none;
@@ -69,11 +74,15 @@
   background-color: #ffd588;
 }
 
+.navbar{
+  background-color: #03371d !important;
+}
+
 .nav-btn{
     /* background-color: red !important; */
     border: none;
     padding: 0.5rem 1rem;
-    margin: 0rem 1.3rem;
+    margin: 0.5rem;
     font-size: 1rem !important;
     font-weight: 500 !important;
     /* font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; */
@@ -110,6 +119,6 @@
 }
 
 #homeBody{
-    background: rgb(255,252,182);
-background: linear-gradient(343deg, rgba(255,252,182,1) 0%, rgba(235,255,249,1) 90%);
+    /* background: rgb(255,252,182);
+background: linear-gradient(343deg, rgba(255,252,182,1) 0%, rgba(235,255,249,1) 90%); */
 }
