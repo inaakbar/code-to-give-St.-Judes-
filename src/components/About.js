@@ -1,9 +1,10 @@
 import React from "react";
 
-function AdminLogin()
-{
-    return(<>
-        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+function About() {
+  return (
+    <>
+      <>
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
           <div className="container">
             <form action="" method="post">
               <button
@@ -119,51 +120,51 @@ function AdminLogin()
             </div>
           </div>
         </nav>
-        <div className="text-center HomeLogin">
-          <form className="loginForm">
-            <img
-              src="/public/logo.jpg"
-              alt="Logo"
-              height={72}
-              className="mt-4 mb-3"
-            />
-            <h1 className="h3 mb-3 font-weight-normal">Sign as Admin</h1>
-            <label htmlFor="UID" className="visually-hidden">
-              Unique Id
-            </label>
-            <input
-              type="text"
-              name=""
-              id="UID"
-              placeholder="Unique Id"
-              className="form-control"
-              pattern="^[a-zA-Z0-9]*$"
-              required=""
-              autofocus=""
-            />
-            <label htmlFor="password" className="visually-hidden">
-              Password
-            </label>
-            <input
-              type="password"
-              name=""
-              id="password"
-              placeholder="Password"
-              className="form-control"
-              pattern="^[0-9]{8}"
-              required=""
-              autofocus=""
-            />
-            {/* pattern attr can be removed if regex written is js */}
-            <div className="mt-3">
-              <button type="submit" className="btn btn-lg btn-outline-dark">
-                Sign in
-              </button>
+        <div className="row mx-auto" id="aboutUs">
+          <h2 className="text-center">About Us</h2>
+          <div className="col-sm-12 col-md-6">
+            <p className="text-sm-center text-md-start">
+              St. Judes India ChildCare Centres provide every child suffering
+              from cancer, irrespective of economic status, a chance at
+              surviving the disease and leading a full, healthy, and happy life.
+              The children come from underprivileged families who had made great
+              sacrifices to ensure that the child was treated successfully for
+              cancer. However, there are new challenges they may face while they
+              try to become self-reliant and independent. To this end, the new
+              vertical, St. Judes for Life (SJFL) will continue to provide
+              support to those recovered as need arises.
+            </p>
+          </div>
+          <div className="col-sm-12 col-md-6 text-center">
+            {/* images as carousel */}
+            <p className="text-center">
+              SJFL provides multiple services to the beneficiaries across 4
+              major thematic areas:
+            </p>
+            <div className="row icon">
+              <div className="col-6 pb-6">
+                <i className="fa-solid fa-school fa-2xl" />
+                <div className="text-center">Education</div>
+              </div>
+              <div className="col-6">
+                <i className="fa-solid fa-briefcase-medical fa-2xl" />
+                <div className="text-center">Healthcare</div>
+              </div>
             </div>
-            {/* <a href="#">Forgot Password</a> */}
-          </form>
+            <div className="row icon">
+              <div className="col-6">
+                <i className="fa-solid fa-house-chimney-user fa-2xl" />
+                <div className="text-center">Livelihood</div>
+              </div>
+              <div className="col-6">
+                <i className="fa-solid fa-screwdriver-wrench fa-2xl" />
+                <div className="text-center">Life skills</div>
+              </div>
+            </div>
+          </div>
         </div>
       </>
-      );
+    </>
+  );
 }
-export default AdminLogin;
+export default About;

@@ -1,8 +1,8 @@
 import React from "react";
 
-function AdminLogin()
+function HomeNavbar()
 {
-    return(<>
+    return(<>    
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
           <div className="container">
             <form action="" method="post">
@@ -119,51 +119,7 @@ function AdminLogin()
             </div>
           </div>
         </nav>
-        <div className="text-center HomeLogin">
-          <form className="loginForm">
-            <img
-              src="/public/logo.jpg"
-              alt="Logo"
-              height={72}
-              className="mt-4 mb-3"
-            />
-            <h1 className="h3 mb-3 font-weight-normal">Sign as Admin</h1>
-            <label htmlFor="UID" className="visually-hidden">
-              Unique Id
-            </label>
-            <input
-              type="text"
-              name=""
-              id="UID"
-              placeholder="Unique Id"
-              className="form-control"
-              pattern="^[a-zA-Z0-9]*$"
-              required=""
-              autofocus=""
-            />
-            <label htmlFor="password" className="visually-hidden">
-              Password
-            </label>
-            <input
-              type="password"
-              name=""
-              id="password"
-              placeholder="Password"
-              className="form-control"
-              pattern="^[0-9]{8}"
-              required=""
-              autofocus=""
-            />
-            {/* pattern attr can be removed if regex written is js */}
-            <div className="mt-3">
-              <button type="submit" className="btn btn-lg btn-outline-dark">
-                Sign in
-              </button>
-            </div>
-            {/* <a href="#">Forgot Password</a> */}
-          </form>
-        </div>
       </>
-      );
+    );
 }
-export default AdminLogin;
+export default HomeNavbar;
