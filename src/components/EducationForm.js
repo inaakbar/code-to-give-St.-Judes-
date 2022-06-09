@@ -13,7 +13,7 @@ function EducationForm() {
               className="btn btn-outline-light btn-lg nav-btn"
             >
               <img
-                src="/public/logo-removebg.png"
+                src={require("./public2/logo-removebg.png")}
                 alt="logo"
                 width={45}
                 height={45}

@@ -1,10 +1,10 @@
 import React from "react";
 
-function Userprofile() {
+function UserProfile() {
   return (
     <>
-      <div>User-Profile</div>
+      <div>User Profile Id</div>
     </>
   );
 }
-export default Userprofile;
+export default UserProfile;

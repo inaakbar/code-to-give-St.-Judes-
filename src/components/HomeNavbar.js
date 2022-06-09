@@ -2,7 +2,8 @@ import React from "react";
 
 function HomeNavbar()
 {
-    return(<>    
+    return (
+      <>
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
           <div className="container">
             <form action="" method="post">
@@ -13,7 +14,7 @@ function HomeNavbar()
                 className="btn btn-outline-light btn-lg nav-btn"
               >
                 <img
-                  src="/public/logo-removebg.png"
+                  src={require("./public2/logo-removebg.png")}
                   alt="logo"
                   width={45}
                   height={45}
