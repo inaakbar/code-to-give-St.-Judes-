@@ -75,7 +75,7 @@
                       </button>
   
                       <ul
-                        class="dropdown-menu text-center bg-dark"
+                        class="dropdown-menu text-center bg-green"
                         aria-labelledby="navbarDropdown"
                       >
                           <li>
@@ -110,67 +110,101 @@
 
     <!-- form -->
     
-    <div class="userFormDiv" id="educationForm">
-        <h3>Education Form</h3>
+    <div class="userFormDiv">
+        <h3 class="formHeading">Request Form</h3>
         <form class="form-floating row g-3 userForm">
-            <div class="form-floating mb-3 col-md-6 col-lg-4">
-                <input type="number" class="form-control" placeholder="name@example.com"
-                name="score"
-                id="score"
+            <div class="form-floating mb-3 col-md-6">
+                <input type="text" class="form-control" placeholder="name@example.com"
+                name="name"
+                id="name"
                 required
                 >
-                <label for="score">Percentage of last academic year</label>
+                <label for="name">Name</label>
               </div>
             
-            <div class="form-floating mb-3 col-md-6 col-lg-4">
-                <input type="number" class="form-control" id="text" name="text" placeholder="name@example.com">
-                <label for="text">Attendance record (in Percentage)</label>
+            <div class="form-floating mb-3 col-md-6">
+                <input type="text" class="form-control" id="phone" name="contactnumber" placeholder="name@example.com">
+                <label for="phone">Contact Number</label>
               </div>
-            <div class="form-floating mb-3 col-md-12 col-lg-4">
-                <input type="number" class="form-control" id="dropout" name="text" placeholder="name@example.com">
-                <label for="dropout">Dropout years</label>
+            <div class="form-floating mb-3 col-md-6">
+                <input type="text" class="form-control" name="eduqualification" id="floatingInput" placeholder="name@example.com">
+                <label for="floatingInput">Education Qualification</label>
               </div>
-            
-              <div class="genderCheckbox AffiliatedInstitute row">
-                  <div class="col-6"><span>Affiliated to any other Institute</span></div>
+            <div class="form-floating mb-3 col-md-6">
+                <input type="date" class="form-control" name="date" placeholder="name@example.com" required>
+                <label for="floatingInput">Date of Birth</label>
+              </div>
+              <div class="form-floating mb-3 col-md-12">
+                <input type="number" class="form-control" name="amountNeeded" id="amountNeeded" placeholder="name@example.com" required>
+                <label for="floatingInput">Amount Needed in Rs.</label>
+              </div>
+              <div class="form-floating mb-3 col-12">
+                  <input type="text" class="form-control" name="Address" id="inputAddress" placeholder="1234 Main St">
+                  <label for="inputAddress">Address</label>
+              </div>
+              <div class="col-md-6">
+                <label for="inputCity" class="form-label">City</label>
+                <input type="text" name="City" class="form-control" id="inputCity">
+              </div>
+              <div class="col-md-4">
+                <label for="inputState" class="form-label">State</label>
+                <select id="inputState" name="State"  class="form-select">
+                  <option selected>Choose...</option>
+                  <option>...</option>
+                </select>
+              </div>
+              <div class="col-md-2">
+                <label for="inputZip" class="form-label">Zip</label>
+                <input type="text" class="form-control" id="inputZip">
+              </div>
+              <div class="genderCheckbox row">
+                  <div class="col-3"><span>Gender</span></div>
                   <div class="form-check col-3">
-                      <input class="form-check-input" type="radio" name="institute" id="Yes" value="yes">
-                      <label class="form-check-label" for="Yes">
-                          Yes
-                        </label>
-                    </div>
-                    <div class="form-check col-3">
-                        <input class="form-check-input" type="radio" name="institute" id="No" value="no">
-                        <label class="form-check-label" for="No">
-                            No
-                        </label>
-                    </div>
-                </div>
-                <div class="form-floating mb-3 col-md-6">
-                    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-                    <label for="inputAddress">Name of Institute</label>
-                </div>
-                <div class="form-floating mb-3 col-md-6">
-                    <input type="text" class="form-control" id="DurationAffiliation" name="DurationAffiliation" placeholder="1234 Main St">
-                    <label for="DurationAffiliation">Duration of affiliation</label>
-                </div>
-                <!-- <div class="col-md-6">
-                  <label for="inputCity" class="form-label">Duration of affiliation</label>
-                  <input type="text" class="form-control" id="inputCity">
-                </div> -->
+                    <input class="form-check-input" type="radio" name="Gender" id="male" value="male">
+                    <label class="form-check-label" for="male">
+                      Male
+                    </label>
+                  </div>
+                  <div class="form-check col-3">
+                    <input class="form-check-input" type="radio" name="Gender" id="female" value="female">
+                    <label class="form-check-label" for="female">
+                      Female
+                    </label>
+                  </div>
+                  <div class="form-check col-3">
+                    <input class="form-check-input" type="radio" name="Gender" id="other" value="other">
+                    <label class="form-check-label" for="other">
+                      Other
+                    </label>
+                  </div>
+              </div>
 
+              <select class="form-select" name="needtype"  aria-label="Default select example">
+                <option selected>Select type of need</option>
+                <option value="Financial">Financial</option>
+                <option value="Non-financial">Non-financial</option>
+              </select>
+
+              <select class="form-select" name="needcategory" aria-label="Default select example">
+                <option selected>Select the sub-category of need</option>
+                <option value="Education">Education</option>
+                  <option value="Health">Health</option>
+                  <option value="Livelihood">Livelihood</option>
+                  <option value="Life skills">Life skills</option>
+                  <option value="Eduation Counselling">Eduation Counselling</option>
+                  <option value="Medical Counselling">Medical Counselling</option>
+            </select>
               <div class="mt-3 center">
-                <button class="btn btn-lg btn-dark"
+                <button class="btn btn-lg btn-dark" formaction="/mainform" formmethod="post"
                     onclick="f3()"
                 >
-                Submit
+                Next
                 </button>
                 <!-- button call to js function or to the server? -->
             </div>
         </form>
 
     </div>
-
     <!-- <button onclick="f3()">Next</button> -->
     <script src="/varun/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
