@@ -71,26 +71,6 @@ const formSchema=new formdbSchema({
   Doc: String,
 
 });
-var l="on";
-//language testing
-app.post('/',function(req,res){
-
-    l="off";
-    const lang=req.body.name;
-    console.log(lang);
-  
-           res.render('hindihome',{
-               Home:"होमपेज",
-               About: "हमारे बारे में",
-               Contact: "संपर्क करें",
-               Language: "भाषा",
-               Login: "लॉग इन करें",
-              Userl:"उपयोगकर्ता के रूप में लॉगिन करें",
-              adminl:"व्यवस्थापक के रूप में लॉगिन करें"
-          });
-      
-});
-
 
 userSchema.plugin(passportLocalMongoose);
 formSchema.plugin(passportLocalMongoose);
