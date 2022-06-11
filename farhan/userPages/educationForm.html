@@ -9,7 +9,67 @@
     <link rel="stylesheet" href="/public/style/user.css">
     <!-- <link rel="stylesheet" href="/public/style/style2.css"> -->
 </head>
-  <body>
+ <script type="text/javascript" src="multilang.js"></script>
+<!-- <script type="text/javascript" src="language-change.js"></script>  -->
+<script type="text/javascript">
+  var multilang;
+  var item = localStorage.getItem("global_lang")
+  console.log(item)
+  function onLoad() {
+    //console.log(JSON.parse(localStorage.getItem("global_lang")))
+    // create object, load JSON file, default to 'nl', and callback to initList when ready loading
+    multilang = new MultiLang('languages.json', item, this.initList);
+
+    // alternatively
+    //multilang = new MultiLang('languages.json', null, this.initList); // default to browser language
+    //multilang = new MultiLang('languages.json'); // only load JSON, no callback
+  }
+  function langSelectChange(sel) {
+    // console.log(document.getElementById("lang").value);
+    // switch to selected language code
+
+    localStorage.setItem('global_lang', sel.value);
+    multilang.setLanguage(sel.value);
+    // refresh labels
+    refreshLabels();
+  }
+
+  function initList() {
+    // get language list element
+    var list = document.getElementsByName("listlanguages")[0];
+    // clear all options
+    list.options.length = 0;
+
+    // add all available languages
+    for (var key in multilang.phrases) {
+      // create new language option
+      var lang = document.createElement("option");
+      lang.value = key;
+      lang.innerHTML = multilang.phrases[key]['langdesc'];
+
+      // append to select element
+      list.appendChild(lang);
+    }
+
+    refreshLabels();
+  }
+
+  function refreshLabels() {
+
+    // loop through all document elements
+    var allnodes = document.body.getElementsByTagName("*");
+
+    for (var i = 0, max = allnodes.length; i < max; i++) {
+      // get id current elements
+      var idname = allnodes[i].id;
+      // if id exists, set get id current elements
+      if (idname != '') {
+        allnodes[i].textContent = multilang.get(idname);
+      };
+    };
+  }
+</script>
+  <body onload="onLoad()">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
             <form action="" method="post">
@@ -23,7 +83,7 @@
                     height="45"
                     class="d-inline-block align-top"
                   />
-                  <span class="logoSpan">User Dashboard</span>
+                  <span id="user-dashboard" class="logoSpan">User Dashboard</span>
                 </button>
             </form>
           <button
@@ -37,33 +97,33 @@
           >
             <span class="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse" id="toggleMobileMenu">
+          <div class="collapse navbar-collapse" >
               <form action="" method="post" class="">
                   <ul class="navbar-nav ms-auto text-center">
                     <li class="nav-item">
                       <!-- <a href="home.ejs" class="nav-link active">About Us</a> -->
                       <button type="submit" name="home" formaction="/"
-                          class="btn btn-outline-light nav-btn"
+                          class="btn btn-outline-light nav-btn" id="home"
                       >
                           Home
                       </button>
                     </li>
                     <li class="nav-item">
                       <!-- <a href="home.ejs" class="nav-link active">About Us</a> -->
-                      <button type="submit" name="aboutUs" formaction="/"
-                          class="btn btn-outline-light nav-btn"
+                      <button id="profile" type="submit" name="aboutUs" formaction="/"
+                          class="btn btn-outline-light nav-btn" 
                       >
                           Profile
                       </button>
                     </li>
                     <li class="nav-item">
                       <button type="submit" name="contactUs" formaction="/"
-                          class="btn btn-outline-light nav-btn"
+                          class="btn btn-outline-light nav-btn" id="contact-us"
                       >
                           Contact Us
                       </button>
                     </li>
-                    <li class="nav-item dropdown">
+                    <!-- <li class="nav-item dropdown">
                       <button
                         href="#"
                         class="dropdown-toggle btn btn-outline-light nav-btn"
@@ -100,7 +160,9 @@
                         >
                             Logout
                         </button>
-                    </li>
+                    </li> -->
+                      <select name="listlanguages" onchange="langSelectChange(this)">
+                      </select>
               </form>
               </li>
             </ul>
@@ -110,8 +172,8 @@
 
     <!-- form -->
     
-    <div class="userFormDiv" id="educationForm">
-        <h3>Education Form</h3>
+    <div class="userFormDiv" >
+        <h3 id="edu-form">Education Form</h3>
         <form class="form-floating row g-3 userForm">
             <div class="form-floating mb-3 col-md-6 col-lg-4">
                 <input type="number" class="form-control" placeholder="name@example.com"
@@ -119,49 +181,49 @@
                 id="score"
                 required
                 >
-                <label for="score">Percentage of last academic year</label>
+                <label id="percentage-academic" for="score">Percentage of last academic year</label>
               </div>
             
             <div class="form-floating mb-3 col-md-6 col-lg-4">
                 <input type="number" class="form-control" id="text" name="text" placeholder="name@example.com">
-                <label for="text">Attendance record (in Percentage)</label>
+                <label id="percentage-attendance" for="text">Attendance record (in Percentage)</label>
               </div>
             <div class="form-floating mb-3 col-md-12 col-lg-4">
                 <input type="number" class="form-control" id="dropout" name="text" placeholder="name@example.com">
-                <label for="dropout">Dropout years</label>
+                <label id="dropout" for="dropout">Dropout years</label>
               </div>
             
               <div class="genderCheckbox AffiliatedInstitute row">
-                  <div class="col-6"><span>Affiliated to any other Institute</span></div>
+                  <div class="col-6"><span id="institute-affiliation">Affiliated to any other Institute</span></div>
                   <div class="form-check col-3">
                       <input class="form-check-input" type="radio" name="institute" id="Yes" value="yes">
-                      <label class="form-check-label" for="Yes">
+                      <label id="yes" class="form-check-label" for="Yes">
                           Yes
                         </label>
                     </div>
                     <div class="form-check col-3">
                         <input class="form-check-input" type="radio" name="institute" id="No" value="no">
-                        <label class="form-check-label" for="No">
+                        <label id="no" class="form-check-label" for="No">
                             No
                         </label>
                     </div>
                 </div>
                 <div class="form-floating mb-3 col-md-6">
                     <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-                    <label for="inputAddress">Name of Institute</label>
+                    <label id="institute-name" for="inputAddress">Name of Institute</label>
                 </div>
                 <div class="form-floating mb-3 col-md-6">
                     <input type="text" class="form-control" id="DurationAffiliation" name="DurationAffiliation" placeholder="1234 Main St">
-                    <label for="DurationAffiliation">Duration of affiliation</label>
+                    <label id="dur-affiliation" for="DurationAffiliation">Duration of affiliation</label>
                 </div>
                 <!-- <div class="col-md-6">
                   <label for="inputCity" class="form-label">Duration of affiliation</label>
                   <input type="text" class="form-control" id="inputCity">
                 </div> -->
 
-              <div class="mt-3 center">
+              <div  class="mt-3 center">
                 <button class="btn btn-lg btn-dark"
-                    onclick="f3()"
+                    onclick="f3()" id="submit-button"
                 >
                 Submit
                 </button>

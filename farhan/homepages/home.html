@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
   </head>
   <script type="text/javascript" src="multilang.js"></script>
+  <script type="text/javascript" src="language-change.js"></script>
   <script type="text/javascript">
     var multilang;
     var item = localStorage.getItem("global_lang")
@@ -179,7 +180,7 @@
       <div class="mx-auto my-5">
         <h2 id="main-login" class="text-center">Login</h2>
         <div class="d-flex align-items-center justify-content-center m-4">
-          <button type="submit" name="admin" class="btn btn-outline-dark btn-lg" id="user-login">
+          <button onclick="window.location.href='Userlogin.html'" type="submit" name="admin" class="btn btn-outline-dark btn-lg" id="user-login">
             Login as User
           </button>
         </div>
@@ -241,10 +242,10 @@
     <!-- Select language from list to switch between translations:
     <select name="listlanguages" onchange="langSelectChange(this)">
     </select><br /> -->
-    <script src="countries.js"></script>
+    
     <script src="https://kit.fontawesome.com/e80646ae69.js" crossorigin="anonymous"></script>
     <!-- <script type="module" src="i18.js"></script> -->
-    <script src="script.js"></script>
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
       crossorigin="anonymous"></script>

@@ -10,7 +10,67 @@
     <script src="userPages.js"></script>
     <!-- <link rel="stylesheet" href="/public/style/style2.css"> -->
 </head>
-  <body id="userDashboard">
+<script type="text/javascript" src="multilang.js"></script>
+<!-- <script type="text/javascript" src="language-change.js"></script>  -->
+<script type="text/javascript">
+  var multilang;
+  var item = localStorage.getItem("global_lang")
+  console.log(item)
+  function onLoad() {
+    //console.log(JSON.parse(localStorage.getItem("global_lang")))
+    // create object, load JSON file, default to 'nl', and callback to initList when ready loading
+    multilang = new MultiLang('languages.json', item, this.initList);
+
+    // alternatively
+    //multilang = new MultiLang('languages.json', null, this.initList); // default to browser language
+    //multilang = new MultiLang('languages.json'); // only load JSON, no callback
+  }
+  function langSelectChange(sel) {
+    // console.log(document.getElementById("lang").value);
+    // switch to selected language code
+
+    localStorage.setItem('global_lang', sel.value);
+    multilang.setLanguage(sel.value);
+    // refresh labels
+    refreshLabels();
+  }
+
+  function initList() {
+    // get language list element
+    var list = document.getElementsByName("listlanguages")[0];
+    // clear all options
+    list.options.length = 0;
+
+    // add all available languages
+    for (var key in multilang.phrases) {
+      // create new language option
+      var lang = document.createElement("option");
+      lang.value = key;
+      lang.innerHTML = multilang.phrases[key]['langdesc'];
+
+      // append to select element
+      list.appendChild(lang);
+    }
+
+    refreshLabels();
+  }
+
+  function refreshLabels() {
+
+    // loop through all document elements
+    var allnodes = document.body.getElementsByTagName("*");
+
+    for (var i = 0, max = allnodes.length; i < max; i++) {
+      // get id current elements
+      var idname = allnodes[i].id;
+      // if id exists, set get id current elements
+      if (idname != '') {
+        allnodes[i].textContent = multilang.get(idname);
+      };
+    };
+  }
+</script>
+  <body onload="onLoad()">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
             <form action="" method="post">
@@ -24,7 +84,7 @@
                     height="45"
                     class="d-inline-block align-top"
                   />
-                  <span class="logoSpan">User Dashboard</span>
+                  <span id="user-dashboard" class="logoSpan">User Dashboard</span>
                 </button>
             </form>
           <button
@@ -38,13 +98,13 @@
           >
             <span class="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse" id="toggleMobileMenu">
+          <div class="collapse navbar-collapse" >
               <form action="" method="post" class="">
                   <ul class="navbar-nav ms-auto text-center">
                     <li class="nav-item">
                       <!-- <a href="home.ejs" class="nav-link active">About Us</a> -->
                       <button type="submit" name="home" formaction="/"
-                          class="btn btn-outline-light nav-btn"
+                          class="btn btn-outline-light nav-btn" id="home"
                       >
                           Home
                       </button>
@@ -52,19 +112,19 @@
                     <li class="nav-item">
                       <!-- <a href="home.ejs" class="nav-link active">About Us</a> -->
                       <button type="submit" name="aboutUs" formaction="/"
-                          class="btn btn-outline-light nav-btn"
+                          class="btn btn-outline-light nav-btn" id="profile"
                       >
                           Profile
                       </button>
                     </li>
                     <li class="nav-item">
                       <button type="submit" name="contactUs" formaction="/"
-                          class="btn btn-outline-light nav-btn"
+                          class="btn btn-outline-light nav-btn" id="contact-us"
                       >
                           Contact Us
                       </button>
                     </li>
-                    <li class="nav-item dropdown">
+                    <!-- <li class="nav-item dropdown">
                       <button
                         href="#"
                         class="dropdown-toggle btn btn-outline-light nav-btn"
@@ -94,14 +154,16 @@
                           </button>
                           </li>
                       </ul>
-                    </li>
+                    </li> -->
                     <li class="nav-item">
                         <button type="submit" name="contactUs" formaction="/"
-                            class="btn btn-outline-light nav-btn"
+                            class="btn btn-outline-light nav-btn" id="logout"
                         >
                             Logout
                         </button>
                     </li>
+                    <select name="listlanguages" onchange="langSelectChange(this)">
+                    </select>
               </form>
               </li>
             </ul>
@@ -109,11 +171,11 @@
         </div>
     </nav>
 
-    <div class="text-center HomeLogin" id="UserHome">
+    <div class="text-center HomeLogin" >
         <img src="/public/logo.jpg" alt="Logo" height="72" 
         class="mt-4 mb-3" />
 
-        <h1 class="h3 mb-3 font-weight-normal">Welcome back</h1>
+        <h1 id="welcome" class="h3 mb-3 font-weight-normal">Welcome back</h1>
         <form class="loginForm">
             <div class="mx-auto my-5">
               <div class="d-flex align-items-center justify-content-center m-4">
@@ -124,30 +186,30 @@
                   Generate New Requests
                 </button>
               </div>
-              <div id="checkStatus" class="d-flex align-items-center justify-content-center m-4">
+              <div  class="d-flex align-items-center justify-content-center m-4">
                 <button type="submit" name="activeRequest" formaction="/"
-                class="btn btn-outline-dark btn-lg"
+                class="btn btn-outline-dark btn-lg" id="checkStatus"
                 >
                   Check status of existing Request
                 </button>
               </div>
-              <div id="uploadDocuments" class="d-flex align-items-center justify-content-center m-4">
+              <div  class="d-flex align-items-center justify-content-center m-4">
                 <button type="submit" name="activeRequest" formaction="/"
-                class="btn btn-outline-dark btn-lg"
+                class="btn btn-outline-dark btn-lg" id="uploadDocuments" 
                 >
                   Upload Documents
                 </button>
               </div>
               <div class="d-flex align-items-center justify-content-center m-4">
                 <button type="submit" name="previousRequest" formaction="/"
-                    class="btn btn-outline-dark btn-lg"
+                    class="btn btn-outline-dark btn-lg" id="prev-request"
                 >
                   Previous Requests
                 </button>
               </div>
             </div>
         </form>
-        <div id="example">
+        <div >
           <button>Hey</button>
         </div>
       </div>

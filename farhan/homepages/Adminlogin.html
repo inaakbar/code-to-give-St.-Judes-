@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="/public/style/style.css" />
   </head>
   <script type="text/javascript" src="multilang.js"></script>
-  <script src="script.js"></script>
+    <script type="text/javascript" src="language-change.js"></script>
   <script type="text/javascript">
     var multilang;
     var item = localStorage.getItem("global_lang")
@@ -27,8 +27,7 @@
     function langSelectChange(sel) {
       // console.log(document.getElementById("lang").value);
       // switch to selected language code
-      // console.log(sel.value)
-      // global_lang = sel.value;
+
        localStorage.setItem('global_lang', sel.value);
       multilang.setLanguage(sel.value);
       // refresh labels
@@ -56,9 +55,6 @@
     }
 
     function refreshLabels() {
-
-      // Basically do the following for all document elements:
-      //document.getElementById("Options").textContent = multilang.get("Options");
 
       // loop through all document elements
       var allnodes = document.body.getElementsByTagName("*");

@@ -43,7 +43,24 @@
     "reason":"Reason",
     "agenda":"Agenda",
     "password":"Password",
-    "profile":"Profile"
+    "profile":"Profile",
+    "health-form":"Health Request Form",
+    "user-dashboard":"User Dashboard",
+    "sel-type-reason":"Select type of reason",
+    "treatment":"Treatment",
+    "medicine":"Medicine",
+    "both":"Both",
+    "sel-dur-treatment":"Select duration of Treatment",
+    "dur1":"<6 months",
+    "dur2":"1-3 years",
+    "dur3":">3 years",
+    "logout":"Logout",
+    "newRequest":"Generate New Request",
+    "checkStatus":"Check status of existing Request",
+    "uploadDocuments":"Upload Documents",
+    "welcome":"Welcome Back",
+    "prev-request":"Previous Requests"
+
 	},
 	"hn":
 	{
@@ -90,7 +107,23 @@
     "agenda":"कार्यसूची",
     "password":"पासवर्ड",
     "contact-us":"संपर्क करें",
-    "profile":"प्रोफ़ाइल"
+    "profile":"प्रोफ़ाइल",
+    "health-form":"स्वास्थ्य अनुरोध प्रपत्र",
+    "user-dashboard":"उपयोगकर्ता डैशबोर्ड",
+    "sel-type-reason":"कारण का चयन करें",
+    "treatment":"इलाज",
+    "medicine":"दवा",
+    "both":"दोनों",
+    "sel-dur-treatment":"उपचार की अवधि चुनें",
+    "dur1":"<6 महीने",
+    "dur2":"1-3 साल",
+    "dur3":">3 साल",
+    "logout":"लॉग आउट",
+    "newRequest":"नया अनुरोध उत्पन्न करें",
+    "checkStatus":"मौजूदा अनुरोध की स्थिति की जाँच करें",
+    "uploadDocuments":"दस्तावेज़ अपलोड करें",
+    "welcome":" स्वागत है",
+    "prev-request":"पिछले अनुरोध"
 
 	}
 }
