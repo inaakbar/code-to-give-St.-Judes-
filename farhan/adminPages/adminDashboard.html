@@ -105,23 +105,27 @@
                     </li>
                 </ul>
               </form>
-              <div id="adminName">
-                <!-- <%=  =%> -->
-                <button type="submit" name="contactUs" formaction="/"
-                            class="btn btn-outline-light nav-btn"
-                        >
-                            Admin Name
-                </button>
-              </div>
           </div>
         </div>
     </nav>
-    <div class="filters">
-      <h3>Sort By - Type, Amount, etc</h3>
+
+    <h1 class="text-center">Requests Detail</h1>
+    <form id="filterForm">
+      <div class="text-center">
+        <label for="">Filter : </label>
+        <select class="form-select" id="filterSelect" aria-label="Default select example">
+            <option value="">Select type</option>
+            <option value="Education">Education</option>
+            <option value="Health">Health</option>
+            <option value="Livelihood">Livelihood</option>
+            <option value="Lifeskill">Lifeskill</option>
+            <option value="Counselling">Counselling</option>
+        </select>
     </div>
-    <div class="AdminContent">
+    </form>
+    <div class="AdminContent text-center m-4">
         <div class="RequestTable">
-          <table class="table" id="statusTable">
+          <table class="table table-bordered" id="statusTable">
             <thead>
               <tr>
                 <th scope="col">UID</th>
