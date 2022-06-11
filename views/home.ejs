@@ -16,14 +16,14 @@
       integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
       crossorigin="anonymous"
     ></script>
-    <link rel="stylesheet" href="/public/style/style.css" />
+    <link rel="stylesheet" href="style/style.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
     />
   </head>
   <body id="homeBody">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
       <div class="container">
           <form action="" method="post">
               <button type="submit" name="contactUs" formaction="/"
@@ -51,7 +51,7 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="toggleMobileMenu">
-            <form action="" method="post" class="navbar-form">
+            <form  class="navbar-form" >
                 <ul class="navbar-nav ms-auto text-center">
                   <li class="nav-item">
                     <!-- <a href="home.ejs" class="nav-link active">About Us</a> -->
@@ -77,6 +77,17 @@
                     </button>
                   </li>
                   <li class="nav-item dropdown">
+                    <!-- <a
+                      href="#"
+                      class="nav-link dropdown-toggle"
+                      id="navbarDropdown"
+                      role="button"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                    >
+                      Languages
+                    </a> -->
+                   
                     <button
                       href="#"
                       class="dropdown-toggle btn btn-outline-light nav-btn"
@@ -88,23 +99,27 @@
                     </button>
 
                     <ul
-                      class="dropdown-menu text-center bg-green"
-                      aria-labelledby="navbarDropdown"
+                      class="dropdown-menu text-center bg-dark"
+                      aria-labelledby="navbarDropdown" name="lang"
                     >
+                   
                         <li>
-                            <button type="submit" name="aboutUs" formaction="/"
+                            <button type="submit" id="en" name="English" formaction="/" 
                             class="btn btn-outline-light nav-btn"
                         >
                             English
                         </button>
                         </li>
+                        
                         <li>
-                            <button type="submit" name="aboutUs" formaction="/"
+                            <button type="submit" id="hi" name="Hindi" formaction="/" formmethod="post"
                             class="btn btn-outline-light nav-btn"
                         >
-                            Hindi
+                        Hindi
                         </button>
                         </li>
+                       
+                      
                     </ul>
             </form>
             </li>
@@ -116,19 +131,19 @@
     <div class="text-center HomeLogin">
         <form class="loginForm">
             <div class="mx-auto my-5">
-              <h2 class="text-center">Login</h2>
+              <h2 class="text-center"> Login </h2>
               <div class="d-flex align-items-center justify-content-center m-4">
-                <button type="submit" name="admin" formaction="/userlogin"
+                <button type="submit" name="admin" formaction="/userlogin" formmethod="get"
                 class="btn btn-outline-dark btn-lg"
                 >
-                  Login as User
+                  Login as User 
                 </button>
               </div>
               <div class="d-flex align-items-center justify-content-center m-4">
-                <button type="submit" name="user" formaction="/adminlogin"
+                <button type="submit" name="user" formaction="/adminlogin" formmethod="get"
                     class="btn btn-outline-dark btn-lg"
                 >
-                  Login as Admin
+                  Login as Admin 
                 </button>
               </div>
             </div>
@@ -175,5 +190,17 @@
       integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
       crossorigin="anonymous"
     ></script>
+    <script src="https://unpkg.com/localbase/dist/localbase.dev.js"></script>
+
+<!-- <script>
+  let db = new Localbase('db');
+
+  db.collection('users').add({
+    uid:1,
+    name:"subject 1",
+    password: "23-01-2001"
+  });
+</script> -->
+
   </body>
 </html>

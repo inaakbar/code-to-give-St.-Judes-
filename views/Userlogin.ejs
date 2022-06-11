@@ -10,11 +10,13 @@
       integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="/public/style/style.css" />
+    <link rel="stylesheet" href="style/style.css" />
+    
+   
   </head>
   <body class="userLogin">
     
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
       <div class="container">
           <form action="" method="post">
               <button type="submit" name="contactUs" formaction="/"
@@ -49,7 +51,7 @@
                     <button type="submit" name="home" formaction="/"
                         class="btn btn-outline-light nav-btn"
                     >
-                        Home
+                      Home
                     </button>
                   </li>
                   <li class="nav-item">
@@ -57,7 +59,7 @@
                     <button type="submit" name="aboutUs" formaction="/"
                         class="btn btn-outline-light nav-btn"
                     >
-                        About Us
+                  About Us
                     </button>
                   </li>
                   <li class="nav-item">
@@ -115,20 +117,20 @@
     </nav>
 
     <div class="text-center HomeLogin">
-      <form class="loginForm">
-        <img src="/public/logo.jpg" alt="Logo" height="72" 
+      <form class="loginForm" action="/userlogin" method="post">
+        <img src="public/logo.jpg" alt="Logo" height="72" 
         class="mt-4 mb-3" />
 
         <h1 class="h3 mb-3 font-weight-normal">Sign as user</h1>
 
         <label for="UID" class="visually-hidden">Unique Id</label>
-        <input type="text" name="" id="UID" placeholder="Unique Id" class="form-control"
-        pattern="^[a-zA-Z0-9]*$"
+        <input type="text" name="uid" id="uid" placeholder="Unique Id" class="form-control"
+        
         required autofocus>
 
         <label for="password" class="visually-hidden">Password</label>
-        <input type="password" name="" id="password" placeholder="Password" class="form-control"
-        pattern="^[0-9]{8}"
+        <input type="password" name="password" id="password" placeholder="Password" class="form-control"
+        
         required autofocus>
         <!-- pattern attr can be removed if regex written is js -->
 
@@ -146,5 +148,17 @@
       integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
       crossorigin="anonymous"
     ></script>
+    <script src="https://unpkg.com/localbase/dist/localbase.dev.js"></script>
+  <!-- <script>
+    let db = new Localbase('db');
+   // console.log(document.getElementById('uid').value)
+
+
+db.collection('users').add({
+  uid:233,
+  name: document.getElementById('uid').value,
+  password: "23-01-2001"
+});
+  </script> -->
   </body>
 </html>
