@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/public/style/style.css">
     <link rel="stylesheet" href="/public/style/user.css">
     <!-- <link rel="stylesheet" href="/public/style/style2.css"> -->
+    <script src="downloadtable.js"></script>
 </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -120,7 +121,7 @@
     </div>
     <div class="AdminContent">
         <div class="RequestTable">
-          <table class="table">
+          <table class="table" id="statusTable">
             <thead>
               <tr>
                 <th scope="col">UID</th>
@@ -191,7 +192,7 @@
           </table>
         </div>
         <div>
-          <button class="btn btn-outline-dark">Export</button>
+          <button class="btn btn-outline-dark" id="exportBtn">Export</button>
         </div>
     </div>
 
