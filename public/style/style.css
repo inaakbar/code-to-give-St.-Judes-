@@ -1,0 +1,124 @@
+/* Element selectors */
+/* body{
+    height: 1000px;
+} */
+
+/* class selectors */
+
+.bg-green{
+  background-color: #03371d !important;
+}
+
+.contact-info-list,
+.social-icon-two {
+  list-style: none;
+}
+.Email {
+  text-decoration: none;
+}
+
+.fa-facebook,
+.fa-linkedin {
+  color: blue;
+}
+.fa-instagram {
+  color: rgb(201, 31, 88);
+}
+.fa-youtube {
+  color: red;
+}
+
+.HomeLogin {
+  width: 300px;
+  margin: 1.3rem auto;
+  /* margin-top: 1.3rem; */
+  padding: 20px 25px;
+  border-radius: 1rem;
+  border: 2px solid rgb(255, 223, 164);
+  background-color: #ffb62f;
+  /* background: rgb(230, 231, 27);
+  background: linear-gradient(
+    343deg,
+    rgba(230, 231, 27, 1) 0%,
+    rgba(253, 191, 45, 1) 54%
+  ); */
+  background: rgb(249,201,67);
+  background: linear-gradient(343deg, rgba(249,201,67,1) 0%, rgba(255,252,182,1) 54%);
+}
+
+.hidden {
+  display: none;
+}
+.icon {
+  margin: 1rem;
+  color: rgb(0, 0, 0);
+}
+.loginLink {
+  padding: 5px 10px;
+  border: 2px solid gray;
+  text-decoration: none;
+  color: black;
+}
+.loginForm {
+  /* max-width: 300px; */
+  margin: auto;
+}
+
+.logoSpan {
+  padding: 1rem 1rem;
+  font-size: x-large;
+}
+
+.userLogin,
+.adminLogin {
+  background-color: #ffd588;
+}
+
+.navbar{
+  background-color: #03371d !important;
+}
+
+.nav-btn{
+    /* background-color: red !important; */
+    border: none;
+    padding: 0.5rem 1rem;
+    margin: 0.5rem;
+    font-size: 1rem !important;
+    font-weight: 500 !important;
+    /* font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; */
+}
+
+.navbar-form{
+    margin-left: 11rem;
+}
+/* .navbar-form{
+    background-color: red;
+    margin-left: 11rem;
+} */
+
+/* Id selectors */
+#aboutUs {
+  background-color: #ffbb3f;
+}
+
+#contactUs {
+  background: rgb(238, 174, 202);
+  background: radial-gradient(
+    circle,
+    rgba(238, 174, 202, 1) 0%,
+    rgba(148, 187, 233, 1) 100%
+  );
+  padding: 2rem;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+#UID,
+#password {
+  margin: 0.8rem 0rem;
+}
+
+#homeBody{
+    /* background: rgb(255,252,182);
+background: linear-gradient(343deg, rgba(255,252,182,1) 0%, rgba(235,255,249,1) 90%); */
+}

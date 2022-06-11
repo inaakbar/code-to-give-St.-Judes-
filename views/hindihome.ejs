@@ -1,21 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>User Login</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home Page</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
       crossorigin="anonymous"
     />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"
+    ></script>
     <link rel="stylesheet" href="style/style.css" />
-    
-   
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    />
   </head>
-  <body class="userLogin">
-    
+  <body id="homeBody">
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
       <div class="container">
           <form action="" method="post">
@@ -44,14 +51,14 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="toggleMobileMenu">
-            <form action="" method="post" class="navbar-form">
+            <form action="/" method="get" class="navbar-form">
                 <ul class="navbar-nav ms-auto text-center">
                   <li class="nav-item">
                     <!-- <a href="home.ejs" class="nav-link active">About Us</a> -->
                     <button type="submit" name="home" formaction="/"
                         class="btn btn-outline-light nav-btn"
                     >
-                      Home
+                      <%= Home %>
                     </button>
                   </li>
                   <li class="nav-item">
@@ -59,14 +66,14 @@
                     <button type="submit" name="aboutUs" formaction="/"
                         class="btn btn-outline-light nav-btn"
                     >
-                  About Us
+                       <%= About %>
                     </button>
                   </li>
                   <li class="nav-item">
                     <button type="submit" name="contactUs" formaction="/"
                         class="btn btn-outline-light nav-btn"
                     >
-                        Contact Us
+                       <%= Contact %>
                     </button>
                   </li>
                   <li class="nav-item dropdown">
@@ -80,6 +87,7 @@
                     >
                       Languages
                     </a> -->
+                   
                     <button
                       href="#"
                       class="dropdown-toggle btn btn-outline-light nav-btn"
@@ -87,27 +95,37 @@
                       data-bs-toggle="dropdown"
                       aria-expanded="false"
                     >
-                      Languages
+                      <%=Language%>
                     </button>
 
                     <ul
                       class="dropdown-menu text-center bg-dark"
-                      aria-labelledby="navbarDropdown"
+                      aria-labelledby="navbarDropdown" name="lang"
                     >
+                   
                         <li>
-                            <button type="submit" name="aboutUs" formaction="/"
+                            <button type="submit" id="en" name="English" formaction="/" formmethod="get"
                             class="btn btn-outline-light nav-btn"
                         >
                             English
                         </button>
                         </li>
                         <li>
-                            <button type="submit" name="aboutUs" formaction="/"
+                            <button type="submit" id="hi" name="Hindi" formaction="/" formmethod="get"
                             class="btn btn-outline-light nav-btn"
                         >
-                            Hindi
+                        हिन्दी
                         </button>
                         </li>
+                        <li>
+                          <button type="submit" id="ma" name="Marathi" formaction="/" formmethod="get"
+                          class="btn btn-outline-light nav-btn"
+                      >
+                      Marathi
+                      </button>
+                      </li>
+                     
+                      
                     </ul>
             </form>
             </li>
@@ -115,32 +133,57 @@
         </div>
       </div>
     </nav>
-
+    
     <div class="text-center HomeLogin">
-      <form class="loginForm" action="/userlogin" method="post">
-        <img src="public/logo.jpg" alt="Logo" height="72" 
-        class="mt-4 mb-3" />
+        <form class="loginForm">
+            <div class="mx-auto my-5">
+              <h2 class="text-center"><%= Login %> </h2>
+              <div class="d-flex align-items-center justify-content-center m-4">
+                <button type="submit" name="admin" formaction="/userlogin"
+                class="btn btn-outline-dark btn-lg"
+                >
+                 <%= Userl %>
+                </button>
+              </div>
+              <div class="d-flex align-items-center justify-content-center m-4">
+                <button type="submit" name="user" formaction="/adminlogin"
+                    class="btn btn-outline-dark btn-lg"
+                >
+                  <%= adminl %> 
+                </button>
+              </div>
+            </div>
+        </form>
+    </div>
 
-        <h1 class="h3 mb-3 font-weight-normal">Sign as user</h1>
 
-        <label for="UID" class="visually-hidden">Unique Id</label>
-        <input type="text" name="uid" id="uid" placeholder="Unique Id" class="form-control"
-        
-        required autofocus>
-
-        <label for="password" class="visually-hidden">Password</label>
-        <input type="password" name="password" id="password" placeholder="Password" class="form-control"
-        
-        required autofocus>
-        <!-- pattern attr can be removed if regex written is js -->
-
-
-        <div class="mt-3">
-            <button type="submit" class="btn btn-lg btn-outline-dark">Sign in</button>
+    <div id="contactUs">
+        <h1>Contact Us</h1>
+        <div class="row">
+            <div class="col">
+                <i class="fa-solid fa-location-dot fa-xl"></i>
+                St. Jude India
+                ChildCare Centres
+                <br />
+                Cotton Green Campus,<br />
+                Ground Floor, Mumbai Port Trust Colony,<br />
+                ABC Colony (Rajas Nagar),<br />
+                Zakaria Bunder Road,<br />
+                Sewri, Mumbai 400015.
+            </div>
         </div>
-        <!-- <a href="#">Forgot Password</a> -->
-
-    </form>
+        <div class="row">
+            <div class="col">
+                <i class="fa-solid fa-phone fa-xl"></i>
+                +91 022 6666 3152
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <i class="fa-solid fa-envelope fa-lg"></i>
+                contact@stjudechild.org
+            </div>
+        </div>
     </div>
 
     <script
@@ -148,17 +191,21 @@
       integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
       crossorigin="anonymous"
     ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"
+    ></script>
     <script src="https://unpkg.com/localbase/dist/localbase.dev.js"></script>
-  <script>
-    let db = new Localbase('db');
-   // console.log(document.getElementById('uid').value)
 
+<script>
+  let db = new Localbase('db');
 
-db.collection('users').add({
-  uid:233,
-  name: document.getElementById('uid').value,
-  password: "23-01-2001"
-});
-  </script>
+  db.collection('users').add({
+    uid:1,
+    name:"subject 1",
+    password: "23-01-2001"
+  });
+</script>
   </body>
 </html>
