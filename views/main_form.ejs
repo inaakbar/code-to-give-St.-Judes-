@@ -7,10 +7,10 @@
   <title>User Dashboard</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-  <!-- <link rel="stylesheet" href="/public/style/user.css"> -->
-  <!-- <link rel="stylesheet" href="/public/style/style.css"> -->
-  <link rel="stylesheet" href="style/style.css">
-  <link rel="stylesheet" href="style/user.css">
+  <!-- <link rel="stylesheet" href="/public/style/user.css">
+  <link rel="stylesheet" href="/public/style/style.css"> -->
+  <link rel="stylesheet" href="/style/user.css">
+  <link rel="stylesheet" href="/style/style.css">
   <!-- <link rel="stylesheet" href="/public/style/style2.css"> -->
 </head>
 
@@ -83,7 +83,7 @@
   <div class="userFormDiv">
     <h3 class="formHeading">Request Form</h3>
     <form class="form-floating row g-3 userForm" id="requestForm">
-      <div class="form-floating mb-3 col-md-6">
+      <div class="form-floating mb-3 col">
         <input type="text" class="form-control" placeholder="name@example.com" name="UID" id="UID" required>
         <label for="UID">UID</label>
       </div>
@@ -111,15 +111,15 @@
         <option value="Medical Counselling">Medical Counselling</option>
       </select>
 
-      <div class="form-floating mb-3 col-md-6" id="amountNeededDiv">
+      <div class="form-floating mb-3 col" id="amountNeededDiv">
         <input type="number" class="form-control" id="amountNeeded" name="amountNeeded" placeholder="name@example.com">
         <label for="amountNeeded">Amount Needed</label>
       </div>
 
-      <div class="userFormDiv" id="educationForm">
+      <div class="userFormDiv row" id="educationForm">
         <h3>Education Form Fields</h3>
-            <div class="form-floating mb-3 col-md-6 col-lg-4">
-                <input type="number" name="percentage" class="form-control" placeholder="name@example.com"
+            <div class="form-floating mb-3 col">
+                <input type="number" class="form-control" placeholder="name@example.com"
                 name="score"
                 id="score"
                 required
@@ -127,12 +127,12 @@
                 <label for="score">Percentage of last academic year</label>
               </div>
             
-            <div class="form-floating mb-3 col-md-6 col-lg-4">
-                <input type="number" name="attendance" class="form-control" id="text" name="text" placeholder="name@example.com">
-                <label for="text">Attendance record (in Percentage)</label>
+            <div class="form-floating mb-3 col">
+                <input type="number" name="attendance" class="form-control" id="attendance" name="text" placeholder="name@example.com">
+                <label for="attendance">Attendance record (in Percentage)</label>
               </div>
-            <div class="form-floating mb-3 col-md-12 col-lg-4">
-                <input type="number" name="drpoutyrs" class="form-control" id="dropout" name="text" placeholder="name@example.com">
+            <div class="form-floating mb-3 col">
+                <input type="number" name="dropout" class="form-control" id="dropout" placeholder="name@example.com">
                 <label for="dropout">Dropout years</label>
               </div>
             
@@ -151,24 +151,20 @@
                         </label>
                     </div>
                 </div>
-                <div class="form-floating mb-3 col-md-6">
-                    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-                    <label for="inputAddress">Name of Institute</label>
+                <div class="form-floating mb-3 col">
+                    <input type="text" class="form-control" id="institute" name="institute" placeholder="1234 Main St">
+                    <label for="institute">Name of Institute</label>
                 </div>
-                <div class="form-floating mb-3 col-md-6">
+                <div class="form-floating mb-3 col">
                     <input type="text" class="form-control" id="DurationAffiliation" name="DurationAffiliation" placeholder="1234 Main St">
                     <label for="DurationAffiliation">Duration of affiliation</label>
                 </div>
-                <!-- <div class="col-md-6">
-                  <label for="inputCity" class="form-label">Duration of affiliation</label>
-                  <input type="text" class="form-control" id="inputCity">
-                </div> -->
      </div>
 
-     <div class="userFormDiv" id="healthForm">
+     <div class="userFormDiv row" id="healthForm">
       <h3>Health Form Fields</h3>
-          <div class="form-floating mb-3 col-md-6 col-lg-4">
-              <input type="text" name="hospital" class="form-control" placeholder="name@example.com"
+          <div class="form-floating mb-3 col">
+              <input type="text" class="form-control" placeholder="name@example.com"
               name="hospital"
               id="hospital"
               required
@@ -176,11 +172,11 @@
               <label for="hospital">Hospital Name</label>
             </div>
           
-          <div class="form-floating mb-3 col-md-6 col-lg-4">
-              <input type="text" name="medail" class="form-control" id="medicalAilment" name="medicalAilment" placeholder="name@example.com">
+          <div class="form-floating mb-3 col">
+              <input type="text" class="form-control" id="medicalAilment" name="medicalAilment" placeholder="name@example.com">
               <label for="medicalAilment">Medical Ailment</label>
             </div>
-          <div class="form-floating mb-3 col-md-6 col-lg-4">
+          <div class="form-floating mb-3 col">
             <div>Duration of Treatment</div>
             <select class="form-select" name="durationoftreatment" aria-label="Default select example">
               <option selected>Select duration of treatment</option>
@@ -189,7 +185,7 @@
               <option value="3 years">&gt;3 years</option>
             </select>
           </div>
-          <div class="form-floating mb-3 col-md-6 col-lg-4">
+          <div class="form-floating mb-3 col">
             <div>Reason</div>
             <select class="form-select" name="reason" aria-label="Default select example">
               <option selected>Select type of reason</option>
@@ -204,23 +200,23 @@
   <!-- <div class="userFormDiv" id="livelihoodForm">
     <h3>Livelihood Form</h3> 
 </div> -->
-  <div class="userFormDiv" id="lifeskillsForm">
+  <div class="userFormDiv row" id="lifeskillsForm">
     <h3>Lifeskills Details</h3> 
-    <div class="form-floating mb-3 col-md-6 col-lg-4">
-      <input type="text" name="hospital" class="form-control" placeholder="name@example.com"
-      name="hospital"
-      id="hospital"
+    <div class="form-floating mb-3 col">
+      <input type="text" class="form-control" placeholder="name@example.com"
+      name="TypeofTraining"
+      id="TypeofTraining"
       required
       >
-      <label for="hospital">Type of Training</label>
+      <label for="TypeofTraining">Type of Training</label>
     </div>
-    <div class="form-floating mb-3 col-md-6 col-lg-4">
-      <input type="text" name="hospital" class="form-control" placeholder="name@example.com"
-      name="hospital"
-      id="hospital"
+    <div class="form-floating mb-3 col">
+      <input type="text" class="form-control" placeholder="name@example.com"
+      name="Skills"
+      id="Skills"
       required
       >
-      <label for="hospital">Skills (already you have)</label>
+      <label for="Skills">Skills (you have already)</label>
     </div>
 </div>
 
