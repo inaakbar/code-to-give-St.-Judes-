@@ -126,8 +126,8 @@
     </nav>
 
     <h1 class="text-center">Requests Detail</h1>
-    <form id="filterForm">
-      <div class="text-center m-4">
+    <form id="filterForm" class="text-center">
+      <div class="m-4">
         <label for="">Filter : </label>
         <select
           class="form-select"
@@ -142,7 +142,7 @@
           <option value="Approved">Approved</option>
         </select>
       </div>
-      <div class="text-center m-4" id="TypeofNeed">
+      <div class="m-4" id="TypeofNeed">
         <label for="">Type of Need : </label>
         <select
           class="form-select"
@@ -157,7 +157,7 @@
           <option value="Counselling">Counselling</option>
         </select>
       </div>
-      <button type="submit" id="filterBtn">Filter</button>
+      <button type="submit" id="filterBtn" class="btn btn-outline-dark btn-lg">Filter</button>
     </form>
     <div class="AdminContent text-center m-4">
       <div class="RequestTable">
@@ -174,16 +174,25 @@
           </thead>
           <tbody>
             <tr>
-              <!-- <th scope="row">1</th> -->
+              <th scope="row">1</th>
               <td>1</td>
               <td>U781</td>
               <td>Mark</td>
-              <td>Approved</td>
+
               <td>Pending</td>
               <td>
-                <button type="button" class="btn btn-outline-dark" formaction="/">
+                <button type="button" id="openFormbtn"
+                class="btn btn-outline-dark" formaction="/">
                   Open Form
                 </button>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="6">
+                <h1>User Name</h1>
+                <form action="" id="userForm">
+                  
+                </form>
               </td>
             </tr>
           </tbody>
@@ -194,8 +203,6 @@
               <td><%= x++ %>  </td>     
               <td><%= form.uid%>  </td>
               <td><%= form.name%></td>
-              <td><%= form.Needtype%></td>
-              <td><%= form.Status%></td>
               <td>
                 <label><%= form.Approval%>
                   <input type="checkbox" name="" id="">
@@ -206,8 +213,11 @@
                   <input type="checkbox" name="" id="">
                 </label>
               </td>
-              <td>See form (form link)</td>
-              <td>Delete Icon</td>
+              <td>
+                <button type="button" class="btn btn-outline-dark" formaction="/">
+                  Open Form
+                </button>
+              </td>
             </tr>
           <%  })%>
             

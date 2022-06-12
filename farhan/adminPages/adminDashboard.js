@@ -1,12 +1,12 @@
 window.onload = function () {
-  console.log("window loaded!");
+  // console.log("window loaded!");
   var exportBtn = document.getElementById("exportBtn");
   exportBtn.addEventListener("click", exportData);
 };
 
 function exportData() {
   var table = document.getElementById("statusTable");
-  console.log(table);
+  // console.log(table);
   /* Declaring array variable */
   var rows = [];
 
@@ -46,7 +46,7 @@ var filterSelect = document.getElementById("filterSelect");
 
 filterSelect.addEventListener("change", () => {
   let selectedOption = filterSelect.options[filterSelect.selectedIndex].value;
-  console.log(selectedOption);
+  // console.log(selectedOption);
 
   switch (selectedOption) {
     case "TypeofNeed":
@@ -58,9 +58,17 @@ filterSelect.addEventListener("change", () => {
   }
 });
 
-// var filterBtn = document.getElementById('filterBtn');
+var openFormbtn = document.getElementById("openFormbtn");
 
-// filterBtn.addEventListener('click', () => {
-//   var filterForm = document.getElementById('')
-// })
+openFormbtn.addEventListener('click', ()=>{
+  let openFormBtnText = openFormbtn.innerText;
+  // console.log(openFormBtnText);
+  if(openFormBtnText === "Open Form"){
+    openFormbtn.innerText = "Close Form";
+    
+  }else if(openFormBtnText === "Close Form"){
+    openFormbtn.innerText = "Open Form";
+
+  }
+});
 
