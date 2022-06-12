@@ -74,7 +74,7 @@
         // get id current elements
         var idname = allnodes[i].id;
         // if id exists, set get id current elements
-        if (idname != '' && idname != "uploadDoc"&&idname!= "docBtn"&& idname!= "typeOfRequest") {
+        if (idname != '' && idname != "uploadDoc" && idname != "typeOfRequest"&& idname!="educationDocuments"&& idname!= "healthDocuments"&&idname!= "Livelihood") {
           allnodes[i].textContent = multilang.get(idname);
         };
       };
@@ -88,7 +88,7 @@
         <form action="" method="post">
           <button type="submit" name="contactUs" formaction="/" class="btn btn-outline-light btn-lg nav-btn">
             <img src="/public/logo-removebg.png" alt="logo" width="45" height="45" class="d-inline-block align-top" />
-            <span class="logoSpan">User Dashboard</span>
+            <span id="user-dashboard" class="logoSpan">User Dashboard</span>
           </button>
         </form>
         <button class="navbar-toggler nav-btn" type="button" data-bs-toggle="collapse"
@@ -101,17 +101,15 @@
             <ul class="navbar-nav ms-auto text-center">
               <li class="nav-item">
                 <!-- <a href="home.ejs" class="nav-link active">About Us</a> -->
-                <button type="submit" name="home" formaction="/" class="btn btn-outline-light nav-btn">
+                <button type="submit" name="home" formaction="/" class="btn btn-outline-light nav-btn" id="home"">
                   Home
                 </button>
               </li>
-              <!-- <li class="nav-item">
-                    <button type="submit" name="contactUs" formaction="/"
-                        class="btn btn-outline-light nav-btn"
-                    >
-                        Contact Us
-                    </button>
-                  </li> -->
+              <!-- <li class=" nav-item">
+                  <button type="submit" name="contactUs" formaction="/" class="btn btn-outline-light nav-btn">
+                    Contact Us
+                  </button>
+              </li> -->
               <!-- <li class="nav-item dropdown">
                     <button
                       href="#"
@@ -144,7 +142,7 @@
                     </ul>
                   </li> -->
               <li class="nav-item">
-                <button type="submit" name="contactUs" formaction="/" class="btn btn-outline-light nav-btn">
+                <button type="submit" name="contactUs" formaction="/" class="btn btn-outline-light nav-btn" id="logout">
                   Logout
                 </button>
               </li>
@@ -160,64 +158,64 @@
     <div class="text-center" id="uploadDoc">
       <div class="userFormDiv">
         <img src="/public/logo.jpg" alt="Logo" height="80" class="mt-4 mb-3" />
-        <h3 class="formHeading">Upload Documents</h3>
+        <h3 id="up-docs" class="formHeading">Upload Documents</h3>
         <form>
           <div class="mb-3">
-            <label for="birthCertificate" class="form-label">Birth certificate</label>
+            <label id="birth-cert" for="birthCertificate" class="form-label">Birth certificate</label>
             <input type="file" class="form-control" id="birthCertificate">
           </div>
           <div class="mb-3">
-            <label for="rationCard" class="form-label">Ration Card/BPL Card</label>
+            <label id="ration" for="rationCard" class="form-label">Ration Card/BPL Card</label>
             <input type="file" class="form-control" id="rationCard">
           </div>
           <div class="mb-3">
-            <label for="aadharCard" class="form-label">Aadhar Card</label>
+            <label id="aadhar" for="aadharCard" class="form-label">Aadhar Card</label>
             <input type="file" class="form-control" id="aadharCard">
           </div>
           <div>
-            <label for="">Type of Request</label>
+            <label id="type of need" for="">Type of Request</label>
             <select id="typeOfRequest" class="form-select" aria-label="Default select example">
-              <option value="">Select type</option>
-              <option value="Education">Education</option>
-              <option value="Health">Health</option>
-              <option value="Livelihood">Livelihood</option>
-              <option value="Lifeskill">Lifeskill</option>
-              <option value="Counselling">Counselling</option>
+              <option id="type of need" value="">Select type</option>
+              <option id="subneed1" value="Education">Education</option>
+              <option id="subneed2" value="Health">Health</option>
+              <option id="subneed3" value="Livelihood">Livelihood</option>
+              <option id="subneed4" value="Lifeskill">Lifeskill</option>
+              <option id="subneed5" value="Counselling">Counselling</option>
             </select>
           </div>
           <div id="educationDocuments">
             <div class="mb-3">
-              <label for="Marksheet" class="form-label">Latest Marksheet</label>
+              <label id="marks" for="Marksheet" class="form-label">Latest Marksheet</label>
               <input type="file" class="form-control" id="Marksheet">
             </div>
             <div class="mb-3">
-              <label for="attendanceReport" class="form-label">Attendance Report</label>
+              <label id="attend-rpt" for="attendanceReport" class="form-label">Attendance Report</label>
               <input type="file" class="form-control" id="attendanceReport">
             </div>
             <div class="mb-3">
-              <label for="feeReceipt" class="form-label">Fee Receipt</label>
+              <label id="fee-rcpt" for="feeReceipt" class="form-label">Fee Receipt</label>
               <input type="file" class="form-control" id="feeReceipt">
             </div>
           </div>
           <div id="healthDocuments">
             <div class="mb-3">
-              <label for="MedicalReport" class="form-label">Medical Reports</label>
+              <label id="med-report" for="MedicalReport" class="form-label">Medical Reports</label>
               <input type="file" class="form-control" id="MedicalReport">
             </div>
             <div class="mb-3">
-              <label for="Medicalbill" class="form-label">Bill</label>
+              <label id="bill" for="Medicalbill" class="form-label">Bill</label>
               <input type="file" class="form-control" id="Medicalbill">
             </div>
           </div>
           <div id="Livelihood">
             <div class="mb-3">
-              <label for="rentAgreement" class="form-label">Rent Agreement</label>
+              <label id="rent"for="rentAgreement" class="form-label">Rent Agreement</label>
               <input type="file" class="form-control" id="rentAgreement">
             </div>
           </div>
 
 
-          <button id="docBtn" type="submit" class="btn btn-outline-dark btn-lg">Submit</button>
+          <button id="docBtn" type="submit" class="btn btn-outline-dark btn-lg"> Submit</button>
         </form>
         <script src="uploadDoc.js"></script>
       </div>

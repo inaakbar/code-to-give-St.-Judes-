@@ -9,6 +9,8 @@ window.onload = function () {
   lifeskillsForm.style.display = "none";
   var amountNeededDiv = document.getElementById("amountNeededDiv");
   amountNeededDiv.style.display = "none";
+   multilang = new MultiLang("languages.json", item, this.initList);
+
 };
 
 var Category = document.getElementById("Category");

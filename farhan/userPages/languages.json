@@ -61,7 +61,21 @@
     "both":"Both",
     "up-docs":"Upload Documents",
     "birth-cert":"Birth Certificate",
-    "ration":"Ration Card/BPL Card"
+    "ration":"Ration Card/BPL Card",
+    "user-dashboard":"User Dashboard",
+     "logout":"Logout",
+     "aadhar":"Aadhar Card",
+     "marks":"Latest Marksheet",
+     "attend-rpt":"Attendance Report",
+     "fee-rcpt":"Fee Receipt",
+     "health-form":"Health Form",
+     "med-report":"Medical Reports",
+     "bill":"Bill",
+     "rent":"Rent Agreement",
+     "docBtn":"Submit",
+     "amount":"Amount needed",
+     "uid":"UID",
+      "training":"Type of Training"
 	},
 	"hn":
 	{
@@ -126,7 +140,21 @@
     "both":"दोनों",
     "up-docs":"दस्तावेज़ अपलोड करें",
     "birth-cert":"जन्म प्रमाणपत्र",
-    "ration":"राशन पत्रिका"
+    "ration":"राशन पत्रिका",
+    "user-dashboard":"उपयोगकर्ता डैशबोर्ड",
+    "logout":"लॉग आउट",
+    "aadhar":"आधार कार्ड",
+     "marks":"नवीनतम मार्कशीट",
+     "attend-rpt":"उपस्थिति विवरण",
+     "fee-rcpt":"शुल्क रसीद",
+     "health-form":"स्वास्थ्य प्रपत्र",
+     "med-report":"चिकित्सा रिपोर्ट",
+       "bill":"बिल",
+    "rent":"किराया समझौता",
+    "docBtn":"जमा  बटन",
+     "amount":"आवश्यक राशि",
+     "uid":"यूआईडी",
+     "training":"प्रशिक्षण का तरीका"
 
 	}
 }
