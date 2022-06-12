@@ -1,97 +1,98 @@
 //For user authentication
 
-
+console.log(process.env.SECRET);
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 const https = require("https");
 const Window = require('window');
 const window = new Window();
-const store = require('store2');
+var multer = require("multer");
+var storage=multer.memoryStorage();
+var upload=multer({dest:'uploads/'});
 
-
-//const localbase=requi
 
 //import index from '../modules/indexdb';
 //const index = require('./modules/indexdb.js');
 //const Localbase=require('localbase');
-store('Profile', { name: 'Manish', age: '27', gender: 'male' });
+
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 app.use(express.static(__dirname + '/'));
 app.use(express.json());
 
+const mongoose=require('mongoose');
+const session=require('express-session');
 
-const mongoose = require('mongoose');
-const session = require('express-session');
-
-const passport = require('passport');
-const passportLocalMongoose = require('passport-local-mongoose');
-
-
-app.use(session({
-    secret: "Secret",
-    resave: false,
-    saveUninitialized: false
-}));
-
-app.use(passport.initialize());
-app.use(passport.session());
-
-
-mongoose.connect("mongodb+srv://project2:mshackathon@cluster1.e6cet.mongodb.net/formdb", { useNewUrlParser: true });
-var con1 = new mongoose.Mongoose();
-var con2 = new mongoose.Mongoose();
-con1.connect('mongodb+srv://project2:mshackathon@cluster1.e6cet.mongodb.net/userdb', { useNewUrlParser: true });
-con2.connect('mongodb+srv://project2:mshackathon@cluster1.e6cet.mongodb.net/formdb', { useNewUrlParser: true });
-const userdbSchema = con1.Schema;
-const formdbSchema = con2.Schema;
+const passport=require('passport');
+const passportLocalMongoose=require('passport-local-mongoose');
 
 
 
-const userSchema = new userdbSchema({
-    uid: String,
-    password: String,
-    requestno: Number,
-});
-
-const formSchema = new formdbSchema({
-    formid: { type: Number, unique: true },
-    requestno: String,
-    uid: type = String,
-    name: String,
-    Gender: String,
-    Address: String,
-    Contactnumber: Number,
-    Needtype: String,
-    Needcategory: String,
-    Amountneeded: Number,
-    Percentage: Number,
-    Attendance: Number,
-    Dropoutyears: Number,
-    Agenda: String,
-    Reason: String,
-    Hospitalname: String,
-    Medicalailment: String,
-    Durationoftreatment: String,
-    Status: String,
-    Approval: String,
-    Doc: String,
-
-});
-
-userSchema.plugin(passportLocalMongoose);
-formSchema.plugin(passportLocalMongoose);
-
-
-const User = con1.model("user", userSchema);
-const Form = con2.model("form", formSchema);
-
-
-passport.use(User.createStrategy());
-passport.serializeUser(User.serializeUser());
-passport.deserializeUser(User.deserializeUser());
+  app.use(session({
+      secret: "Secret",
+      resave: false,
+      saveUninitialized: false
+  }));
+  
+  app.use(passport.initialize());
+  app.use(passport.session());
+  
+  
+  mongoose.connect("mongodb+srv://project2:mshackathon@cluster1.e6cet.mongodb.net/formdb", { useNewUrlParser: true });
+  var con1 = new mongoose.Mongoose();
+  var con2 = new mongoose.Mongoose();
+  con1.connect('mongodb+srv://project2:mshackathon@cluster1.e6cet.mongodb.net/userdb', { useNewUrlParser: true });
+  con2.connect('mongodb+srv://project2:mshackathon@cluster1.e6cet.mongodb.net/formdb', { useNewUrlParser: true });
+  const userdbSchema = con1.Schema;
+  const formdbSchema = con2.Schema;
+  
+  
+  
+  const userSchema = new userdbSchema({
+      uid: String,
+      password: String,
+      requestno: Number,
+  });
+  
+  const formSchema = new formdbSchema({
+      formid: { type: Number, unique: true },
+      requestno: String,
+      uid: type = String,
+      name: String,
+      Gender: String,
+      Address: String,
+      Contactnumber: Number,
+      Needtype: String,
+      Needcategory: String,
+      Amountneeded: Number,
+      Percentage: Number,
+      Attendance: Number,
+      Dropoutyears: Number,
+      Agenda: String,
+      Reason: String,
+      Hospitalname: String,
+      Medicalailment: String,
+      Durationoftreatment: String,
+      Status: String,
+      Approval: String,
+      Doc: String,
+  
+  });
+  
+  userSchema.plugin(passportLocalMongoose);
+  formSchema.plugin(passportLocalMongoose);
+  
+  
+  const User = con1.model("user", userSchema);
+  const Form = con2.model("form", formSchema);
+  
+  
+  passport.use(User.createStrategy());
+  passport.serializeUser(User.serializeUser());
+  passport.deserializeUser(User.deserializeUser());
+  
 
 
 
@@ -167,22 +168,7 @@ app.post("/userlogin", function (req, res) {
 //admin username and password define here
 const username = "adminlogin";
 const p = "123xyz";
-/*async function gettable(){
-    var ans=[];
-  
-     await Form.find({},['_id','uid','requestno','name','Status','Approval','Doc'],{
-        sort:{
-          speed:-1
-        }
-      }, function(err,allInfos){
-        for(let i=0;i<allInfos.length,10;i++){
-          ans.push(allInfos[i]);
-        }
-      }).clone();
-  
-      //console.log(ans);
-      return ans;
-  };*/
+
 app.get("/admindashboard", function (req, res) {
     Form.find({}).sort({ formid: -1 }).exec(function (err, form) {
         res.render('adminDashboard', {
@@ -238,7 +224,7 @@ app.post("/adminlogin", function (req, res) {
     };
 });
 
-app.post("/userdash", function (req, res) {
+app.get("/userdash", function (req, res) {
 
     res.render("userDashboard");
 });
@@ -366,6 +352,34 @@ app.post("/llform",function(req,res){
     });
     res.render("userDashboard");
 });*/
+
+
+
+////////uploading documents
+
+
+app.get('/uploaddoc',function(req,res){ 
+ res.render("uploadDoc");
+
+});
+app.post('/uploaddoc',upload.array("image"),function(req,res){
+    console.log("it worked");
+    //var uid=req.body.uid;
+    Form.findOneAndUpdate({uid:4567 }, 
+        { Doc: "Uploaded"}, null, function (err, docs) {
+        if (err){
+            console.log(err)
+        }
+        else{
+            console.log("Original Doc : ",docs);
+        }
+    });
+
+
+    res.redirect('/userdash');
+
+
+});
 
 
 
