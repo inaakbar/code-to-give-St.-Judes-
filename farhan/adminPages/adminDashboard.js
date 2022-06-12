@@ -58,4 +58,9 @@ filterSelect.addEventListener("change", () => {
   }
 });
 
+// var filterBtn = document.getElementById('filterBtn');
+
+// filterBtn.addEventListener('click', () => {
+//   var filterForm = document.getElementById('')
+// })
 

@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="/public/style/style.css" />
     <link rel="stylesheet" href="/public/style/user.css" />
     <!-- <link rel="stylesheet" href="/public/style/style2.css"> -->
-    
+    <script src="farhan/main.js"></script>
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -157,6 +157,7 @@
           <option value="Counselling">Counselling</option>
         </select>
       </div>
+      <button type="submit" id="filterBtn">Filter</button>
     </form>
     <div class="AdminContent text-center m-4">
       <div class="RequestTable">
@@ -172,6 +173,21 @@
             </tr>
           </thead>
           <tbody>
+            <tr>
+              <!-- <th scope="row">1</th> -->
+              <td>1</td>
+              <td>U781</td>
+              <td>Mark</td>
+              <td>Approved</td>
+              <td>Pending</td>
+              <td>
+                <button type="button" class="btn btn-outline-dark" formaction="/">
+                  Open Form
+                </button>
+              </td>
+            </tr>
+          </tbody>
+          <!-- <tbody>
             <% var x=1; %> 
             <% formList.forEach(form=>{ %>
                    <tr>
@@ -195,13 +211,15 @@
             </tr>
           <%  })%>
             
-          </tbody>
+          </tbody> -->
         </table>
       </div>
       <div>
         <button class="btn btn-outline-dark" id="exportBtn">Export</button>
       </div>
     </div>
+
+    
 
     <!-- <button onclick="f3()">Next</button> -->
     <script src="adminDashboard.js"></script>
