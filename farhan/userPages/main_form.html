@@ -14,7 +14,68 @@
   <!-- <link rel="stylesheet" href="/public/style/style2.css"> -->
 </head>
 
-<body>
+<script type="text/javascript" src="multilang.js"></script>
+<script type="text/javascript">
+  var multilang;
+  var item = localStorage.getItem("global_lang")
+  console.log(item)
+  function onLoad() {
+    //console.log(JSON.parse(localStorage.getItem("global_lang")))
+    // create object, load JSON file, default to 'nl', and callback to initList when ready loading
+    multilang = new MultiLang('languages.json', item, this.initList);
+
+    // alternatively
+    //multilang = new MultiLang('languages.json', null, this.initList); // default to browser language
+    //multilang = new MultiLang('languages.json'); // only load JSON, no callback
+  }
+  function langSelectChange(sel) {
+    // console.log(document.getElementById("lang").value);
+    // switch to selected language code
+
+    localStorage.setItem('global_lang', sel.value);
+    multilang.setLanguage(sel.value);
+    // refresh labels
+    refreshLabels();
+  }
+
+  function initList() {
+    console.log("gg")
+    // get language list element
+    var list = document.getElementsByName("listlanguages")[0];
+    // clear all options
+    list.options.length = 0;
+
+    // add all available languages
+    for (var key in multilang.phrases) {
+      // create new language option
+      var lang = document.createElement("option");
+      lang.value = key;
+      lang.innerHTML = multilang.phrases[key]['langdesc'];
+
+      // append to select element
+      list.appendChild(lang);
+    }
+
+    refreshLabels();
+  }
+
+  function refreshLabels() {
+
+    // loop through all document elements
+    var allnodes = document.body.getElementsByTagName("*");
+
+    for (var i = 0, max = allnodes.length; i < max; i++) {
+      // get id current elements
+      var idname = allnodes[i].id;
+      // if id exists, set get id current elements
+      if (idname != '') {
+        allnodes[i].textContent = multilang.get(idname);
+      };
+    };
+  }
+</script>
+
+<body onload="onLoad()">
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
         <form action="" method="post">
@@ -53,14 +114,14 @@
                       Home
                   </button>
                 </li>
-                <!-- <li class="nav-item">
+                 <li class="nav-item">
                   <button type="submit" name="contactUs" formaction="/"
                       class="btn btn-outline-light nav-btn"
                   >
                       Contact Us
                   </button>
-                </li> -->
-                <li class="nav-item dropdown">
+                </li> 
+                <!-- <li class="nav-item dropdown">
                   <button
                     href="#"
                     class="dropdown-toggle btn btn-outline-light nav-btn"
@@ -69,9 +130,9 @@
                     aria-expanded="false"
                   >
                     Languages
-                  </button>
+                  </button> -->
 
-                  <ul
+                  <!-- <ul
                     class="dropdown-menu text-center bg-dark"
                     aria-labelledby="navbarDropdown"
                   >
@@ -90,7 +151,7 @@
                       </button>
                       </li>
                   </ul>
-                </li>
+                </li> -->
                 <li class="nav-item">
                     <button type="submit" name="contactUs" formaction="/"
                         class="btn btn-outline-light nav-btn"
@@ -98,6 +159,8 @@
                         Logout
                     </button>
                 </li>
+                  <select name="listlanguages" onchange="langSelectChange(this)">
+                  </select>
           </form>
           </li>
         </ul>

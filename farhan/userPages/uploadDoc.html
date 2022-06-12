@@ -1,63 +1,118 @@
 <!doctype html>
 <html lang="en">
+
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Life skills Form</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="stylesheet" href="/public/style/style.css">
     <link rel="stylesheet" href="/public/style/user.css">
     <script src="userPages.js"></script>
     <script src="/farhan/main.js"></script>
     <!-- <link rel="stylesheet" href="/public/style/style2.css"> -->
-</head>
-  <body id="userDashboard">
+  </head>
+  <script type="text/javascript" src="multilang.js"></script>
+  <script type="text/javascript" src="language-change.js"></script>
+  <script type="text/javascript">
+    var multilang;
+    var item = localStorage.getItem("global_lang")
+    console.log(item);
+    if (item == null)
+      item = 'en';
+    function onLoad() {
+      console.log("gg")
+    }
+    function onLoad() {
+      console.log("gg")
+      //console.log(JSON.parse(localStorage.getItem("global_lang")))
+      // create object, load JSON file, default to 'nl', and callback to initList when ready loading
+      multilang = new MultiLang('languages.json', item, this.initList);
+
+      // alternatively
+      //multilang = new MultiLang('languages.json', null, this.initList); // default to browser language
+      //multilang = new MultiLang('languages.json'); // only load JSON, no callback
+    }
+    function langSelectChange(sel) {
+      // console.log(document.getElementById("lang").value);
+      // switch to selected language code
+
+      localStorage.setItem('global_lang', sel.value);
+      multilang.setLanguage(sel.value);
+      // refresh labels
+      refreshLabels();
+    }
+
+    function initList() {
+      console.log("gg");
+      // get language list element
+      var list = document.getElementsByName("listlanguages")[0];
+      // clear all options
+      list.options.length = 0;
+
+      // add all available languages
+      for (var key in multilang.phrases) {
+        // create new language option
+        var lang = document.createElement("option");
+        lang.value = key;
+        lang.innerHTML = multilang.phrases[key]['langdesc'];
+
+        // append to select element
+        list.appendChild(lang);
+      }
+
+      refreshLabels();
+    }
+
+    function refreshLabels() {
+
+      // loop through all document elements
+      var allnodes = document.body.getElementsByTagName("*");
+
+      for (var i = 0, max = allnodes.length; i < max; i++) {
+        // get id current elements
+        var idname = allnodes[i].id;
+        // if id exists, set get id current elements
+        if (idname != '' && idname != "uploadDoc"&&idname!= "docBtn"&& idname!= "typeOfRequest") {
+          allnodes[i].textContent = multilang.get(idname);
+        };
+      };
+    }
+  </script>
+
+  <body onload="onLoad()">
+
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container">
-          <form action="" method="post">
-              <button type="submit" name="contactUs" formaction="/"
-               class="btn btn-outline-light btn-lg nav-btn"
-              >
-                <img
-                  src="/public/logo-removebg.png"
-                  alt="logo"
-                  width="45"
-                  height="45"
-                  class="d-inline-block align-top"
-                />
-                <span class="logoSpan">User Dashboard</span>
-              </button>
-          </form>
-        <button
-          class="navbar-toggler nav-btn"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#toggleMobileMenu"
-          aria-controls="toggleMobileMenu"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
+        <form action="" method="post">
+          <button type="submit" name="contactUs" formaction="/" class="btn btn-outline-light btn-lg nav-btn">
+            <img src="/public/logo-removebg.png" alt="logo" width="45" height="45" class="d-inline-block align-top" />
+            <span class="logoSpan">User Dashboard</span>
+          </button>
+        </form>
+        <button class="navbar-toggler nav-btn" type="button" data-bs-toggle="collapse"
+          data-bs-target="#toggleMobileMenu" aria-controls="toggleMobileMenu" aria-expanded="false"
+          aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="toggleMobileMenu">
-            <form action="" >
-                <ul class="navbar-nav ms-auto text-center">
-                  <li class="nav-item">
-                    <!-- <a href="home.ejs" class="nav-link active">About Us</a> -->
-                    <button type="submit" name="home" formaction="/"
-                        class="btn btn-outline-light nav-btn"
-                    >
-                        Home
-                    </button>
-                  </li>
-                  <!-- <li class="nav-item">
+        <div class="collapse navbar-collapse">
+          <form action="">
+            <ul class="navbar-nav ms-auto text-center">
+              <li class="nav-item">
+                <!-- <a href="home.ejs" class="nav-link active">About Us</a> -->
+                <button type="submit" name="home" formaction="/" class="btn btn-outline-light nav-btn">
+                  Home
+                </button>
+              </li>
+              <!-- <li class="nav-item">
                     <button type="submit" name="contactUs" formaction="/"
                         class="btn btn-outline-light nav-btn"
                     >
                         Contact Us
                     </button>
                   </li> -->
-                  <li class="nav-item dropdown">
+              <!-- <li class="nav-item dropdown">
                     <button
                       href="#"
                       class="dropdown-toggle btn btn-outline-light nav-btn"
@@ -87,90 +142,92 @@
                         </button>
                         </li>
                     </ul>
-                  </li>
-                  <li class="nav-item">
-                      <button type="submit" name="contactUs" formaction="/"
-                          class="btn btn-outline-light nav-btn"
-                      >
-                          Logout
-                      </button>
-                  </li>
-            </form>
-            </li>
+                  </li> -->
+              <li class="nav-item">
+                <button type="submit" name="contactUs" formaction="/" class="btn btn-outline-light nav-btn">
+                  Logout
+                </button>
+              </li>
+              <select name="listlanguages" onchange="langSelectChange(this)">
+              </select>
+          </form>
+          </li>
           </ul>
         </div>
       </div>
-  </nav>
+    </nav>
 
     <div class="text-center" id="uploadDoc">
-        <div class="userFormDiv">
-            <img src="/public/logo.jpg" alt="Logo" height="80" 
-            class="mt-4 mb-3" />
-            <h3 class="formHeading">Upload Documents</h3>
-            <form>
-                <div class="mb-3">
-                  <label for="birthCertificate" class="form-label">Birth certificate</label>
-                  <input type="file" class="form-control" id="birthCertificate">
-                </div>
-                <div class="mb-3">
-                  <label for="rationCard" class="form-label">Ration Card/BPL Card</label>
-                  <input type="file" class="form-control" id="rationCard">
-                </div>
-                <div class="mb-3">
-                  <label for="aadharCard" class="form-label">Aadhar Card</label>
-                  <input type="file" class="form-control" id="aadharCard">
-                </div>
-                <div>
-                    <label for="">Type of Request</label>
-                    <select id="typeOfRequest" class="form-select" aria-label="Default select example">
-                        <option value="">Select type</option>
-                        <option value="Education">Education</option>
-                        <option value="Health">Health</option>
-                        <option value="Livelihood">Livelihood</option>
-                        <option value="Lifeskill">Lifeskill</option>
-                        <option value="Counselling">Counselling</option>
-                    </select>
-                </div>
-                <div id="educationDocuments">
-                    <div class="mb-3">
-                        <label for="Marksheet" class="form-label">Latest Marksheet</label>
-                        <input type="file" class="form-control" id="Marksheet">
-                    </div>
-                    <div class="mb-3">
-                        <label for="attendanceReport" class="form-label">Attendance Report</label>
-                        <input type="file" class="form-control" id="attendanceReport">
-                    </div>
-                    <div class="mb-3">
-                        <label for="feeReceipt" class="form-label">Fee Receipt</label>
-                        <input type="file" class="form-control" id="feeReceipt">
-                    </div>
-                </div>
-                <div id="healthDocuments">
-                    <div class="mb-3">
-                        <label for="MedicalReport" class="form-label">Medical Reports</label>
-                        <input type="file" class="form-control" id="MedicalReport">
-                    </div>
-                    <div class="mb-3">
-                        <label for="Medicalbill" class="form-label">Bill</label>
-                        <input type="file" class="form-control" id="Medicalbill">
-                    </div>
-                </div>
-                <div id="Livelihood">
-                    <div class="mb-3">
-                        <label for="rentAgreement" class="form-label">Rent Agreement</label>
-                        <input type="file" class="form-control" id="rentAgreement">
-                    </div>
-                </div>
-                
+      <div class="userFormDiv">
+        <img src="/public/logo.jpg" alt="Logo" height="80" class="mt-4 mb-3" />
+        <h3 class="formHeading">Upload Documents</h3>
+        <form>
+          <div class="mb-3">
+            <label for="birthCertificate" class="form-label">Birth certificate</label>
+            <input type="file" class="form-control" id="birthCertificate">
+          </div>
+          <div class="mb-3">
+            <label for="rationCard" class="form-label">Ration Card/BPL Card</label>
+            <input type="file" class="form-control" id="rationCard">
+          </div>
+          <div class="mb-3">
+            <label for="aadharCard" class="form-label">Aadhar Card</label>
+            <input type="file" class="form-control" id="aadharCard">
+          </div>
+          <div>
+            <label for="">Type of Request</label>
+            <select id="typeOfRequest" class="form-select" aria-label="Default select example">
+              <option value="">Select type</option>
+              <option value="Education">Education</option>
+              <option value="Health">Health</option>
+              <option value="Livelihood">Livelihood</option>
+              <option value="Lifeskill">Lifeskill</option>
+              <option value="Counselling">Counselling</option>
+            </select>
+          </div>
+          <div id="educationDocuments">
+            <div class="mb-3">
+              <label for="Marksheet" class="form-label">Latest Marksheet</label>
+              <input type="file" class="form-control" id="Marksheet">
+            </div>
+            <div class="mb-3">
+              <label for="attendanceReport" class="form-label">Attendance Report</label>
+              <input type="file" class="form-control" id="attendanceReport">
+            </div>
+            <div class="mb-3">
+              <label for="feeReceipt" class="form-label">Fee Receipt</label>
+              <input type="file" class="form-control" id="feeReceipt">
+            </div>
+          </div>
+          <div id="healthDocuments">
+            <div class="mb-3">
+              <label for="MedicalReport" class="form-label">Medical Reports</label>
+              <input type="file" class="form-control" id="MedicalReport">
+            </div>
+            <div class="mb-3">
+              <label for="Medicalbill" class="form-label">Bill</label>
+              <input type="file" class="form-control" id="Medicalbill">
+            </div>
+          </div>
+          <div id="Livelihood">
+            <div class="mb-3">
+              <label for="rentAgreement" class="form-label">Rent Agreement</label>
+              <input type="file" class="form-control" id="rentAgreement">
+            </div>
+          </div>
 
-                <button id="docBtn" type="submit" class="btn btn-outline-dark btn-lg">Submit</button>
-              </form>
-              <script src="uploadDoc.js"></script>
-        </div>
+
+          <button id="docBtn" type="submit" class="btn btn-outline-dark btn-lg">Submit</button>
+        </form>
+        <script src="uploadDoc.js"></script>
       </div>
+    </div>
 
     <!-- <button onclick="f3()">Next</button> -->
     <script src="/varun/script.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"></script>
   </body>
+
 </html>

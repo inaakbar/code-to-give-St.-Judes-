@@ -7,6 +7,7 @@ window.onload = function () {
   healthDocuments.style.display = "none";
   var Livelihood = document.getElementById("Livelihood");
   Livelihood.style.display = "none";
+   multilang = new MultiLang("languages.json", item, this.initList);
 };
 
 var typeOfRequest = document.getElementById("typeOfRequest");
