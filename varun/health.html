@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style2.css">
+        <title>Health</title>
+    </head>
+
+    <body>
+        <h1>Health</h1>
+        <form action="/action_page.php" method="post">
+            <div class="flex-container">
+                <label class="flex-item-left">Name of hospital</label>
+                <input class="flex-item-right" type="text" name="name" required>
+            </div>
+            <br>
+            <div class="flex-container">
+                <label class="flex-item-left">Medical ailment</label>
+                <input class="flex-item-right" type="text" name="text" required>
+            </div>
+            <br>
+            <div class="flex-container">
+                <label class="flex-item-left">Agenda</label>
+                <textarea class="flex-item-right" name="Agenda"></textarea>
+            </div>
+            <br>
+            <div class="flex-container">
+                <label class="flex-item-left" for="dur">Duration of Treatment</label>
+                <select class="flex-item-right" name="dur" id="dur">
+                    <option>
+                        <6 months</option>
+                    <option>1-3 years</option>
+                    <option>>3years</option>
+                </select>
+            </div>
+            <br>
+            <div class="flex-container">
+                <label class="flex-item-left" for="dur">Reason</label>
+                <select class="flex-item-right" name="dur" id="dur">
+                    <option>
+                        Treatment</option>
+                    <option>Medicine</option>
+                    <option>Both</option>
+                </select>
+            </div><br>
+            <input type="submit">
+        </form>
+
+    </body>
+
+</html>

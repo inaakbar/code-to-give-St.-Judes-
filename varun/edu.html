@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <link rel="stylesheet" href="/public/style/style2.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Education</title>
+
+    </head>
+
+    <body>
+        <h1>Education</h1>
+        <form action="/action_page.php" method="post">
+            <div class="flex-container">
+                <label class="flex-item-left">Percentage of last academic year</label>
+                <input class="flex-item-right" type="number" name="score" min="1" max="100" required>
+            </div>
+            <br>
+            <div class="flex-container">
+                <label class="flex-item-left">Attendance record</label>
+                <input class="flex-item-right" type="number" name="text" min="1" max="100" required>
+            </div>
+            <br>
+            <div class="flex-container">
+                <label class="flex-item-left">Dropout years</label>
+                <input class="flex-item-right" type="number" name="text" min="0" max="5" required>
+            </div>
+            <br>
+            <div class="flex-container">
+                <label class="flex-item-left" for="dur">Affiliated to any other Institute</label>
+                <select required class="flex-item-right" name="dur" id="select2" onchange="edu1()">
+                    <option>
+                        Yes</option>
+                    <option>No</option>
+                </select>
+            </div>
+
+            <br>
+            <div class="flex-container-2">
+                <label class="flex-item-left">Name</label>
+                <input class="flex-item-right" type="text" name="name" id="institute">
+            </div>
+            <br>
+            <div class="flex-container-2">
+                <label class="flex-item-left">Duration</label>
+                <input class="flex-item-right" type="text" name="name" id="time">
+            </div>
+            <br>
+            <input type="submit">
+        </form>
+
+      
+
+        <script src="script.js"></script>
+    </body>
+
+</html>
