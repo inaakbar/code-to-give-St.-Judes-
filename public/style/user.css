@@ -7,6 +7,13 @@
   align-items: center;
 }
 
+.custom-file-upload {
+  border: 1px solid #ccc;
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
 .userFormDiv {
   /* background: rgb(131, 58, 180);
   background: linear-gradient(
@@ -53,4 +60,27 @@
 #educationForm {
   padding: 4.3rem 2rem;
   /* margin: 5rem 2rem; */
+}
+
+#uploadDoc{
+  width: 80vw;
+  margin: 1em auto;
+  padding: 20px 25px;
+  border-radius: 1rem;
+  border: 2px solid rgb(255, 223, 164);
+  background-color: #ffb62f;
+  background: rgb(249,201,67);
+  background: linear-gradient(343deg, rgba(249,201,67,1) 0%, rgba(255,252,182,1) 54%);
+}
+
+#uploadDoc>div>form>div>label, #uploadDoc>div>form>div>div>label{
+  /* color: red; */
+  /* background-color: red; */
+  font-size: 1.5rem;
+  font-family: 'Courier New', Courier, monospace;
+  margin: 0.5em;
+}
+
+#docBtn{
+  margin: 1.1em;
 }

@@ -113,12 +113,17 @@
   margin-top: 2rem;
 }
 
-#UID,
-#password {
+#UID, #password {
   margin: 0.8rem 0rem;
 }
 
-#homeBody{
-    /* background: rgb(255,252,182);
-background: linear-gradient(343deg, rgba(255,252,182,1) 0%, rgba(235,255,249,1) 90%); */
+#filterForm{
+  font-size: 1.5rem;
+  margin: 2rem;
+}
+
+#filterSelect{
+  display: inline !important;
+  width: 30% !important;
+  font-size: 1.2rem;
 }

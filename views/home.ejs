@@ -190,16 +190,23 @@
       integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
       crossorigin="anonymous"
     ></script>
-    <script src="https://unpkg.com/localbase/dist/localbase.dev.js"></script>
+   
 
 <script>
-  let db = new Localbase('db');
+  if ('serviceWorker' in navigator){
 
-  db.collection('users').add({
-    uid:1,
-    name:"subject 1",
-    password: "23-01-2001"
-  });
+console.log("service worker is working");
+navigator.serviceWorker.register('../service-worker.js').then(function(registration){
+  console.log('service worker registration succeeded:',registration);
+},
+function(error){
+console.log('service worker registration failed:',error);
+});
+}
+else{
+console.log('service workers are not supported.');
+}
+  
 </script>
 
   </body>
