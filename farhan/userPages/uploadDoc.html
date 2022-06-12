@@ -13,102 +13,94 @@
 </head>
   <body id="userDashboard">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-            <form action="" method="post">
-                <button type="submit" name="contactUs" formaction="/"
-                 class="btn btn-outline-light btn-lg nav-btn"
-                >
-                  <img
-                    src="/public/logo-removebg.png"
-                    alt="logo"
-                    width="45"
-                    height="45"
-                    class="d-inline-block align-top"
-                  />
-                  <span class="logoSpan">User Dashboard</span>
-                </button>
-            </form>
-          <button
-            class="navbar-toggler nav-btn"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#toggleMobileMenu"
-            aria-controls="toggleMobileMenu"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="toggleMobileMenu">
-              <form action="" method="post" class="">
-                  <ul class="navbar-nav ms-auto text-center">
-                    <li class="nav-item">
-                      <!-- <a href="home.ejs" class="nav-link active">About Us</a> -->
-                      <button type="submit" name="home" formaction="/"
-                          class="btn btn-outline-light nav-btn"
-                      >
-                          Home
-                      </button>
-                    </li>
-                    <li class="nav-item">
-                      <!-- <a href="home.ejs" class="nav-link active">About Us</a> -->
-                      <button type="submit" name="aboutUs" formaction="/"
-                          class="btn btn-outline-light nav-btn"
-                      >
-                          Profile
-                      </button>
-                    </li>
-                    <li class="nav-item">
+      <div class="container">
+          <form action="" method="post">
+              <button type="submit" name="contactUs" formaction="/"
+               class="btn btn-outline-light btn-lg nav-btn"
+              >
+                <img
+                  src="/public/logo-removebg.png"
+                  alt="logo"
+                  width="45"
+                  height="45"
+                  class="d-inline-block align-top"
+                />
+                <span class="logoSpan">User Dashboard</span>
+              </button>
+          </form>
+        <button
+          class="navbar-toggler nav-btn"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#toggleMobileMenu"
+          aria-controls="toggleMobileMenu"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="toggleMobileMenu">
+            <form action="" >
+                <ul class="navbar-nav ms-auto text-center">
+                  <li class="nav-item">
+                    <!-- <a href="home.ejs" class="nav-link active">About Us</a> -->
+                    <button type="submit" name="home" formaction="/"
+                        class="btn btn-outline-light nav-btn"
+                    >
+                        Home
+                    </button>
+                  </li>
+                  <!-- <li class="nav-item">
+                    <button type="submit" name="contactUs" formaction="/"
+                        class="btn btn-outline-light nav-btn"
+                    >
+                        Contact Us
+                    </button>
+                  </li> -->
+                  <li class="nav-item dropdown">
+                    <button
+                      href="#"
+                      class="dropdown-toggle btn btn-outline-light nav-btn"
+                      id="navbarDropdown"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                    >
+                      Languages
+                    </button>
+
+                    <ul
+                      class="dropdown-menu text-center bg-dark"
+                      aria-labelledby="navbarDropdown"
+                    >
+                        <li>
+                            <button type="submit" name="aboutUs" formaction="/"
+                            class="btn btn-outline-light nav-btn"
+                        >
+                            English
+                        </button>
+                        </li>
+                        <li>
+                            <button type="submit" name="aboutUs" formaction="/"
+                            class="btn btn-outline-light nav-btn"
+                        >
+                            Hindi
+                        </button>
+                        </li>
+                    </ul>
+                  </li>
+                  <li class="nav-item">
                       <button type="submit" name="contactUs" formaction="/"
                           class="btn btn-outline-light nav-btn"
                       >
-                          Contact Us
+                          Logout
                       </button>
-                    </li>
-                    <li class="nav-item dropdown">
-                      <button
-                        href="#"
-                        class="dropdown-toggle btn btn-outline-light nav-btn"
-                        id="navbarDropdown"
-                        data-bs-toggle="dropdown"
-                        aria-expanded="false"
-                      >
-                        Languages
-                      </button>
-  
-                      <ul
-                        class="dropdown-menu text-center bg-dark"
-                        aria-labelledby="navbarDropdown"
-                      >
-                          <li>
-                              <button type="submit" name="aboutUs" formaction="/"
-                              class="btn btn-outline-light nav-btn"
-                          >
-                              English
-                          </button>
-                          </li>
-                          <li>
-                              <button type="submit" name="aboutUs" formaction="/"
-                              class="btn btn-outline-light nav-btn"
-                          >
-                              Hindi
-                          </button>
-                          </li>
-                      </ul>
-                    </li>
-                    <li class="nav-item">
-                        <button type="submit" name="contactUs" formaction="/"
-                            class="btn btn-outline-light nav-btn"
-                        >
-                            Logout
-                        </button>
-                    </li>
-              </form>
-              </li>
-            </ul>
-          </div>
+                  </li>
+            </form>
+            </li>
+          </ul>
         </div>
-    </nav>
+      </div>
+  </nav>
 
     <div class="text-center" id="uploadDoc">
         <div class="userFormDiv">
