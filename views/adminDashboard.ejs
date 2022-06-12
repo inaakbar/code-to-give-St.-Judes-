@@ -178,7 +178,7 @@
               <td>1</td>
               <td>U781</td>
               <td>Mark</td>
-              <td>Approved</td>
+
               <td>Pending</td>
               <td>
                 <button type="button" class="btn btn-outline-dark" formaction="/">
@@ -187,15 +187,13 @@
               </td>
             </tr>
           </tbody>
-          <!-- <tbody>
+          <tbody>
             <% var x=1; %> 
             <% formList.forEach(form=>{ %>
                    <tr>
               <td><%= x++ %>  </td>     
               <td><%= form.uid%>  </td>
               <td><%= form.name%></td>
-              <td><%= form.Needtype%></td>
-              <td><%= form.Status%></td>
               <td>
                 <label><%= form.Approval%>
                   <input type="checkbox" name="" id="">
@@ -206,12 +204,15 @@
                   <input type="checkbox" name="" id="">
                 </label>
               </td>
-              <td>See form (form link)</td>
-              <td>Delete Icon</td>
+              <td>
+                <button type="button" class="btn btn-outline-dark" formaction="/">
+                  Open Form
+                </button>
+              </td>
             </tr>
           <%  })%>
             
-          </tbody> -->
+          </tbody>
         </table>
       </div>
       <div>
