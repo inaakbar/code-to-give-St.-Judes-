@@ -1,4 +1,5 @@
 window.onload = function () {
+  multilang = new MultiLang("languages.json", 'en', this.initList);
   console.log("window loaded!");
   // console.log(educationDocuments);
   var educationForm = document.getElementById("educationForm");

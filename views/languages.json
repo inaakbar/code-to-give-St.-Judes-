@@ -1,5 +1,6 @@
 {
 	"en": {
+    "checkStatus":"Request Status",
 			"langdesc": "English",
 		"main-login":"Login",
     "user-login":"Login as User",
@@ -89,6 +90,7 @@
 	},
 	"hn":
 	{
+    "checkStatus":"अनुरोध की स्थिति",
 	"langdesc": "Hindi",
 	"main-login":"लॉग इन करें",
     "user-login":"उपयोगकर्ता के रूप में लॉगिन करें",
