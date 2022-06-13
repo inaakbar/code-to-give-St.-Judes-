@@ -59,7 +59,7 @@ const userSchema = new userdbSchema({
 });
 
 const formSchema = new formdbSchema({
-    formid:{type: Number, unique:true} ,
+    formid:{type: Number} ,
     uid: String,
     name: String,
     Gender: String,
@@ -79,6 +79,7 @@ const formSchema = new formdbSchema({
     Status: String,
     Approval: String,
     Doc: String,
+    date: Date
 
 });
 
@@ -138,12 +139,14 @@ app.get("/adminlogin", function (req, res) {
     res.render("main_form");//name of login ejs file for user
 });*/
 
-
+var uniid;
+var uniname;
 app.post("/userlogin", function (req, res) {
 
 
     User.findOne({ uid: req.body.uid }, function (err, foundUser) {
         console.log(foundUser.name);
+        uniid=foundUser.uid;
 
         if (err) {
             console.log(err);
@@ -167,11 +170,15 @@ app.post("/userlogin", function (req, res) {
     });
 });
 
-///////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////s//////
 
 app.get("/userdash", function (req, res) {
+    
 
-    res.render("userDashboard");
+res.render("userDashboard",{
+    User: uniname,
+    Userid: uniid
+});
 });
 app.get("/userdash/prevrequests/(:id)", function (req, res) {
     console.log(req.params.id);
@@ -208,6 +215,15 @@ app.get("/admindashboard", function (req, res) {
         });
     });
 });
+app.get("/adminnotification", function (req, res) {
+    Form.find({Status:"New"}).exec(function (err, form) {
+        res.render('adminnotification', {
+            formList: form
+        });
+    });
+});
+
+
 app.post("/admindashboard", function (req, res) {
     var val = req.body.value;
     console.log(val);
@@ -277,7 +293,7 @@ app.post("/mainform", function (req, res) {
 
 
     const newform = new Form({
-        formid: 1,
+        formid: 4,
         uid: req.body.data.uid,
         Needtype: req.body.data.needtype,
         Needcategory: req.body.data.needcategory,
@@ -293,12 +309,13 @@ app.post("/mainform", function (req, res) {
         Hospitalname: req.body.data.Hospitalname,
         Medicalailment: req.body.data.Medicalailment,
         Durationoftreatment: req.body.data.Durationoftreatment,
+        date: new Date()
 
     });
     console.log("coming till here");
     newform.save();
     //db.collection('formdb').add(newform);
-    res.redirect('/userlogin');
+    res.redirect('/userdash');
 });
 
 
@@ -332,7 +349,7 @@ app.post('/userdash/documentupload/(:id)', upload.array("image"), function (req,
             }
         });
 
-        res.redirect('/userlogin');
+        res.redirect('/userdash');
 });
 
 
@@ -359,7 +376,7 @@ app.get('/admindashboard/update/(:id)', function (req, res, next) {
 app.get('/admindashboard/updateformandapprove/(:id)', function (req, res, next) {
     console.log("fetching id to approve");
     Form.findByIdAndUpdate(req.params.id,
-        { Approval: "Approved" }, null, function (err, docs) {
+        { Approval: "Approved",Status:"Seen"}, null, function (err, docs) {
             if (err) {
                 console.log(err);
             }
@@ -375,7 +392,7 @@ app.get('/admindashboard/updateformandapprove/(:id)', function (req, res, next) 
 app.get('/admindashboard/updateformandreject/(:id)', function (req, res, next) {
     console.log("fetching id to reject");
     Form.findByIdAndUpdate(req.params.id,
-        { Approval: "Rejected" }, null, function (err, docs) {
+        { Approval: "Rejected",Status:"Seen"}, null, function (err, docs) {
             if (err) {
                 console.log(err);
             }
