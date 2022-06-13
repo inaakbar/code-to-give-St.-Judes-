@@ -125,103 +125,69 @@
       </div>
     </nav>
 
-    <h1 class="text-center">Requests Detail</h1>
-    <form id="filterForm" class="text-center">
-      <div class="m-4">
-        <label for="">Filter : </label>
-        <select
-          class="form-select"
-          id="filterSelect"
-          aria-label="Default select example"
-        >
-          <option value="">Select type</option>
-          <option value="NewesttoOldest">Newest -> Oldest</option>
-          <option value="OldesttoNewest">Oldest -> Newest</option>
-          <option value="AmountNeeded">Amount Needed</option>
-          <option value="TypeofNeed">Type of Need</option>
-          <option value="Approved">Approved</option>
-        </select>
-      </div>
-      <div class="m-4" id="TypeofNeed">
-        <label for="">Type of Need : </label>
-        <select
-          class="form-select"
-          id="filterSelect"
-          aria-label="Default select example"
-        >
-          <option value="">Select type</option>
-          <option value="Education">Education</option>
-          <option value="Health">Health</option>
-          <option value="Livelihood">Livelihood</option>
-          <option value="Lifeskill">Lifeskill</option>
-          <option value="Counselling">Counselling</option>
-        </select>
-      </div>
-      <button type="submit" id="filterBtn" class="btn btn-outline-dark btn-lg">Filter</button>
-    </form>
-    <div class="AdminContent text-center m-4">
-      <div class="RequestTable">
+    <h1 class="text-center">User's Name Form</h1>
+    <!-- <h1 class="text-center"><%= form.name%></h1> -->
+    <div class="container">
         <table class="table table-bordered" id="statusTable">
-          <thead>
-            <tr>
-              <th scope="col">S.no.</th>
-              <th scope="col">UID</th>
-              <th scope="col">Name</th>
-              <th scope="col">Status</th>
-              <th scope="col">Document Status</th>
-              <th scope="col">Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>1</td>
-              <td>U781</td>
-              <td>Mark</td>
-
-              <td>Pending</td>
-              <td>
-                <button type="button" id="openFormbtn"
-                class="btn btn-outline-dark" formaction="/">
-                  Open Form
-                </button>
-              </td>
-            </tr>
-          </tbody>
-          <!-- <tbody>
-            <% var x=1; %> 
-            <% formList.forEach(form=>{ %>
-                   <tr>
-              <td><%= x++ %>  </td>     
-              <td><%= form.uid%>  </td>
-              <td><%= form.name%></td>
-              <td>
-                <label><%= form.Approval%>
-                  <input type="checkbox" name="" id="">
-                </label>
-              </td>
-              <td>
-                <label><%= form.Doc%>
-                  <input type="checkbox" name="" id="">
-                </label>
-              </td>
-              <td>
-                <button type="button" class="btn btn-outline-dark" formaction="/">
-                  Open Form
-                </button>
-              </td>
-            </tr>
-          <%  })%>
-            
-          </tbody> -->
-        </table>
-      </div>
-      <div>
-        <button class="btn btn-outline-dark" id="exportBtn">Export</button>
-      </div>
+            <!-- <tbody>
+                <tr>
+                    <th>UID:</th>
+                    <td>U781</td>
+                  </tr>
+                <tr>
+                    <th>Name:</th>
+                    <td>Mark</td>
+                  </tr>
+                  <tr>
+                    <th>Agenda:</th>
+                    <td>555 77 854</td>
+                  </tr>
+                  <tr>
+                    <th>Type of Need:</th>
+                    <td>Financial</td>
+                  </tr>
+                  <tr>
+                    <th>Sub-category of Need:</th>
+                    <td>Education</td>
+                  </tr>
+                  <tr>
+                    <th>Amount Needed in Rs.:</th>
+                    <td>10000</td>
+                  </tr>
+                  <tr>
+                    <th>Add other fields if we get the time</th>
+                    <td>10000</td>
+                  </tr>
+                  
+            </tbody> -->
+            <tbody>
+                <tr>
+                    <th>UID:</th>
+                    <td> <%= form.uid %> </td>
+                  </tr>
+                <tr>
+                    <th>Name:</th>
+                    <td><%= form.name %></td>
+                  </tr>
+                  <tr>
+                    <th>Agenda:</th>
+                    <td><%= form.agenda %></td>
+                  </tr>
+                  <tr>
+                    <th>Type of Need:</th>
+                    <td><%= form.typeOfNeed %></td>
+                  </tr>
+                  <tr>
+                    <th>Sub-category of Need:</th>
+                    <td><%= form.subcategoryOfNeed %></td>
+                  </tr>
+                  <tr>
+                    <th>Amount Needed in Rs.:</th>
+                    <td><%= form.amount %></td>
+                  </tr>
+            </tbody>
+          </table>
     </div>
-
-    
 
     <!-- <button onclick="f3()">Next</button> -->
     <script src="adminDashboard.js"></script>
