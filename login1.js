@@ -146,7 +146,8 @@ app.post("/userlogin", function (req, res) {
 
     User.findOne({ uid: req.body.uid }, function (err, foundUser) {
         console.log(foundUser.name);
-        uniid=foundUser.uid;
+        uniid=foundUser._id;
+        uniname=foundUser.name;
 
         if (err) {
             console.log(err);
@@ -156,6 +157,7 @@ app.post("/userlogin", function (req, res) {
         } else {
             if (foundUser) {
                 if (foundUser.password === req.body.password) {
+                    
                     res.render("userDashboard", {
                         User: foundUser.name,
                         Userid: foundUser._id
@@ -173,7 +175,8 @@ app.post("/userlogin", function (req, res) {
 /////////////////////////////////////////////////////////////////s//////
 
 app.get("/userdash", function (req, res) {
-    
+    console.log(uniname);
+    console.log(uniid);
 
 res.render("userDashboard",{
     User: uniname,
@@ -181,8 +184,7 @@ res.render("userDashboard",{
 });
 });
 app.get("/userdash/prevrequests/(:id)", function (req, res) {
-    console.log(req.params.id);
-    var userUid = undefined;
+  
 
     User.findById(req.params.id, (err, user) => {
         console.log("user found", user);
@@ -293,7 +295,7 @@ app.post("/mainform", function (req, res) {
 
 
     const newform = new Form({
-        formid: 4,
+        formid: 5,
         uid: req.body.data.uid,
         Needtype: req.body.data.needtype,
         Needcategory: req.body.data.needcategory,

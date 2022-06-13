@@ -269,6 +269,7 @@
         saved: true,
         uts: new Date()
       });
+      db.collection('requestform').doc( form.key).delete()
     };
 
     let db = new Localbase('db');
