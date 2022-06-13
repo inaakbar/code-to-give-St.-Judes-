@@ -191,9 +191,14 @@
                 </label>
               </td>
               <td>
-                <button type="button" class="btn btn-outline-dark" formaction="/">
+                <a type="button" class="btn btn-outline-dark" href="/admindashboard/update/<%= form._id%>">
                   Open Form
-                </button>
+                </a>
+              </td>
+              <td>
+                <a type="button" class="btn btn-outline-dark" href="/admindashboard/delete/<%= form._id%>">
+                  Delete Form
+                </a>
               </td>
             </tr>
           <%  })%>

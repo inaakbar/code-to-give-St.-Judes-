@@ -27,6 +27,8 @@ const session = require('express-session');
 
 const passport = require('passport');
 const passportLocalMongoose = require('passport-local-mongoose');
+const { stringify } = require('querystring');
+const { default: doc } = require('localbase/localbase/api/selectors/doc');
 
 
 
@@ -52,13 +54,14 @@ const formdbSchema = con2.Schema;
 
 const userSchema = new userdbSchema({
     uid: String,
+    name: String,
     password: String,
     requestno: Number,
 });
 
 const formSchema = new formdbSchema({
     formid: Number,
-    uid: Number,
+    uid: String,
     name: String,
     Gender: String,
     Address: String,
@@ -141,6 +144,7 @@ app.post("/userlogin", function (req, res) {
 
 
     User.findOne({ uid: req.body.uid }, function (err, foundUser) {
+        console.log(foundUser.name);
 
         if (err) {
             console.log(err);
@@ -150,7 +154,10 @@ app.post("/userlogin", function (req, res) {
         } else {
             if (foundUser) {
                 if (foundUser.password === req.body.password) {
-                    res.render("userDashboard");
+                    res.render("userDashboard", {
+                        User: foundUser.name,
+                        Userid: foundUser._id
+                    });
                 }
                 else {
                     console.log("still not found");
@@ -160,6 +167,35 @@ app.post("/userlogin", function (req, res) {
         };
     });
 });
+
+///////////////////////////////////////////////////////////////////////
+
+app.get("/userdash", function (req, res) {
+
+    res.render("userDashboard");
+});
+app.get("/userdash/prevrequests/(:id)", function (req, res) {
+    console.log(req.params.id);
+    var userUid = undefined;
+
+    User.findById(req.params.id, (err, user) => {
+        console.log("user found", user);
+        if (user) {
+            Form.find({ uid: user.uid }, function (err, form) {
+                console.log("form uid", form);
+                res.render("userRequestStatus", {
+                    formList: form,
+                });
+            });
+        }
+    }).clone().catch(e => { console.log(e); })
+});
+
+
+
+
+
+
 
 //admin login
 //admin username and password define here
@@ -216,15 +252,12 @@ app.post("/adminlogin", function (req, res) {
     if (req.body.uniid === username && p === req.body.password) {
         res.redirect('admindashboard');
     } else {
-        console.log("Incorrect password! Try again");
+        window.alert("Incorrect password! Try again");
         res.redirect('adminlogin');
     };
 });
 
-app.get("/userdash", function (req, res) {
 
-    res.render("userDashboard");
-});
 
 
 //after entering user dashboard
@@ -276,15 +309,21 @@ app.post("/mainform", function (req, res) {
 ////////uploading documents
 
 
-app.get('/uploaddoc', function (req, res) {
-    res.render("uploadDoc");
+app.get('/userdash/documentupload/(:id)', function (req, res) {
+    Form.findById(req.params.id, function (err, form) {
+        console.log("form uid");
+        res.render("uploadDoc", {
+            Form: form,
+        });
+    });
 
 });
 
-app.post('/uploaddoc', upload.array("image"), function (req, res) {
+//uploading doc//////////////////////////////////
+app.post('/userdash/documentupload/(:id)', upload.array("image"), function (req, res) {
     console.log("it worked");
     //var uid=req.body.uid;
-    Form.findOneAndUpdate({ uid: 4567 },
+    Form.findByIdAndUpdate(req.params.id,
         { Doc: "Uploaded" }, null, function (err, docs) {
             if (err) {
                 console.log(err)
@@ -294,11 +333,9 @@ app.post('/uploaddoc', upload.array("image"), function (req, res) {
             }
         });
 
-
-    res.redirect('/userdash');
-
-
+        res.redirect('/userlogin');
 });
+
 
 
 /////////////////////////////////////////////////////////////
@@ -307,7 +344,23 @@ app.post('/uploaddoc', upload.array("image"), function (req, res) {
 
 
 
-app.listen(7000, function () {
-    console.log("server is running on port 7000");
+
+
+app.get('/admindashboard/delete/(:uid)', function (req, res, next) {
+    console.log("fetching id");
+    Form.findByIdAndRemove(req.params.uid, (err, doc) => {
+        console.log('removing elemenet');
+        if (!err) {
+            res.redirect('/admindashboard');
+        } else {
+            console.log('Failed to Delete user Details: ' + err);
+        }
+    });
+});
+
+
+
+app.listen(4000, function () {
+    console.log("server is running on port 4000");
 });
 

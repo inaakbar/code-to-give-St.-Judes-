@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Life skills Form</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-    <link rel="stylesheet" href="style/style.css">
-    <link rel="stylesheet" href="style/user.css">
+    <link rel="stylesheet" href="/public/style/style.css">
+    <link rel="stylesheet" href="/public/style/user.css">
     <script src="userPages.js"></script>
     <!-- <link rel="stylesheet" href="/public/style/style2.css"> -->
 </head>
@@ -24,7 +24,7 @@
                     height="45"
                     class="d-inline-block align-top"
                   />
-                  <span class="logoSpan">User Dashboard</span>
+                  <span class="logoSpan"><%=Form.name%> Dashboard</span>
                 </button>
             </form>
           <button
@@ -114,7 +114,7 @@
             <img src="/public/logo.jpg" alt="Logo" height="80" 
             class="mt-4 mb-3" />
             <h3 class="formHeading">Upload Documents</h3>
-            <form  action ="/uploaddoc" method="post" enctype="multipart/form-data">
+            <form  action ="/userdash/documentupload/<%=Form._id%>" method="post" enctype="multipart/form-data">
                 <div class="mb-3">
                   <label for="birthCertificate" class="form-label">Birth certificate</label>
                   <input type="file" name="image" class="form-control" id="birthCertificate">
@@ -177,7 +177,7 @@
       </div>
 
     <!-- <button onclick="f3()">Next</button> -->
-    <script src="/varun/script.js"></script>
+   
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
   </body>
 </html>
