@@ -13,7 +13,7 @@
     <script type="text/javascript" src="language-change.js"></script>
   <script type="text/javascript">
     var multilang;
-    var item = localStorage.getItem("global_lang")
+    var item = localStorage.getItem("global_lang") == "null" ? "en" : localStorage.getItem("global_lang");
     console.log(item)
     function onLoad() {
       //console.log(JSON.parse(localStorage.getItem("global_lang")))

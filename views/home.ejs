@@ -14,7 +14,8 @@
   <script type="text/javascript" src="multilang.js"></script>
   <script type="text/javascript">
     var multilang;
-    var item = localStorage.getItem("global_lang")
+    var item = localStorage.getItem("global_lang") == "null" ? "en" : localStorage.getItem("global_lang");
+    // var item = "en";
     //if(item)
     //localStorage.setItem('global_lang', "en");
     function onLoad() {
