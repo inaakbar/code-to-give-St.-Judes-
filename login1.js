@@ -234,7 +234,7 @@ app.post("/admindashboard", function (req, res) {
             });
         });
     } else {
-        console.log('aa to rha h' + val);
+       
         Form.find({}).sort({ val: 1 }).exec(function (err, form) {
             res.render('adminDashboard', {
                 formList: form
