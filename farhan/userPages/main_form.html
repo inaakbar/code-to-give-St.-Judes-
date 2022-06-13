@@ -160,7 +160,8 @@
                         Logout
                     </button>
                 </li>
-                  <select name="listlanguages" onchange="langSelectChange(this)">
+                <li class="nav-item dropdown">
+                  <select style="padding: 10px; background-color:white; border:none;" name="listlanguages" onchange="langSelectChange(this)">
                   </select>
           </form>
           </li>
@@ -168,6 +169,7 @@
       </div>
     </div>
 </nav>
+
 
   <!-- form -->
 
@@ -292,7 +294,7 @@
     <h3>Livelihood Form</h3> 
 </div> -->
   <div class="userFormDiv row" id="lifeskillsForm">
-    <h3>Lifeskills Details</h3> 
+    <h3 id="subneed4">Lifeskills Details</h3> 
     <div class="form-floating mb-3 col">
       <input type="text" class="form-control" placeholder="name@example.com"
       name="TypeofTraining"
@@ -307,7 +309,7 @@
       id="Skills"
       required
       >
-      <label for="Skills">Skills (you have already)</label>
+      <label id="skills"for="Skills">Skills (you have already)</label>
     </div>
 </div>
 

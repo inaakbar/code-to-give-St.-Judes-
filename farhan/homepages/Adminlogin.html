@@ -64,7 +64,7 @@
         // get id current elements
         var idname = allnodes[i].id;
         // if id exists, set get id current elements
-        if (idname != '') {
+        if (idname != ''&& idname!= "toggleMobileMenu") {
           allnodes[i].textContent = multilang.get(idname);
         };
       };
@@ -73,7 +73,7 @@
 
   <body class="userLogin" onload="onLoad()">
 
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container">
         <form action="" method="post">
           <button type="submit" name="contactUs" formaction="/" class="btn btn-outline-light btn-lg nav-btn">
@@ -86,7 +86,7 @@
           aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse">
+        <div class="collapse navbar-collapse" id="toggleMobileMenu">
           <form action="" method="post" class="navbar-form">
             <ul class="navbar-nav ms-auto text-center">
               <li class="nav-item">
@@ -147,7 +147,7 @@
                         </button>
                         </li>
                     </ul> -->
-                <select name="listlanguages" onchange="langSelectChange(this)">
+                <select style="padding: 10px; background-color:white; border:none;" name="listlanguages" onchange="langSelectChange(this)">
                 </select>
           </form>
           </li>

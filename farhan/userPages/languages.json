@@ -75,7 +75,11 @@
      "docBtn":"Submit",
      "amount":"Amount needed",
      "uid":"UID",
-      "training":"Type of Training"
+      "training":"Type of Training",
+      "requestStatus":"Request Status",
+      "newRequest":" Generate New Request",
+       "welcome":"Welcome Back",
+       "skills":"Skills"
 	},
 	"hn":
 	{
@@ -154,7 +158,11 @@
     "docBtn":"जमा  बटन",
      "amount":"आवश्यक राशि",
      "uid":"यूआईडी",
-     "training":"प्रशिक्षण का तरीका"
+     "training":"प्रशिक्षण का तरीका",
+     "requestStatus":"अनुरोध की स्थिति",
+     "newRequest":"नया अनुरोध उत्पन्न करें",
+     "welcome":"स्वागत हे",
+     "skills":"कौशल"
 
 	}
 }
