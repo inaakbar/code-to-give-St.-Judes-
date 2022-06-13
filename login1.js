@@ -27,8 +27,7 @@ const session = require('express-session');
 
 const passport = require('passport');
 const passportLocalMongoose = require('passport-local-mongoose');
-const { stringify } = require('querystring');
-const { default: doc } = require('localbase/localbase/api/selectors/doc');
+
 
 
 
@@ -60,7 +59,7 @@ const userSchema = new userdbSchema({
 });
 
 const formSchema = new formdbSchema({
-    formid: Number,
+    formid:{type: Number, unique:true} ,
     uid: String,
     name: String,
     Gender: String,
@@ -234,7 +233,7 @@ app.post("/admindashboard", function (req, res) {
             });
         });
     } else {
-       
+        console.log('aa to rha h' + val);
         Form.find({}).sort({ val: 1 }).exec(function (err, form) {
             res.render('adminDashboard', {
                 formList: form
@@ -278,7 +277,7 @@ app.post("/mainform", function (req, res) {
 
 
     const newform = new Form({
-        formid: 4,
+        formid: 1,
         uid: req.body.data.uid,
         Needtype: req.body.data.needtype,
         Needcategory: req.body.data.needcategory,
@@ -299,7 +298,7 @@ app.post("/mainform", function (req, res) {
     console.log("coming till here");
     newform.save();
     //db.collection('formdb').add(newform);
-    res.redirect('/userdash');
+    res.redirect('/userlogin');
 });
 
 
@@ -341,6 +340,54 @@ app.post('/userdash/documentupload/(:id)', upload.array("image"), function (req,
 /////////////////////////////////////////////////////////////
 
 //localstorage.setItem("form1","javascrpt");
+app.get('/admindashboard/update/(:id)', function (req, res, next) {
+    console.log("fetching id");
+    Form.findById(req.params.id, (err, form) => {
+        console.log("user found", form);
+        if (form) {
+           
+                console.log("form uid", form);
+                res.render("edusubmittedform", {
+                    form: form,
+                });
+            
+        }
+    }).clone().catch(e => { console.log(e); })
+
+});
+//to approve
+app.get('/admindashboard/updateformandapprove/(:id)', function (req, res, next) {
+    console.log("fetching id to approve");
+    Form.findByIdAndUpdate(req.params.id,
+        { Approval: "Approved" }, null, function (err, docs) {
+            if (err) {
+                console.log(err);
+            }
+            else {
+                res.redirect('/admindashboard');
+                console.log("Original Doc : ", docs);
+            }
+        });
+    
+
+});
+///toreject
+app.get('/admindashboard/updateformandreject/(:id)', function (req, res, next) {
+    console.log("fetching id to reject");
+    Form.findByIdAndUpdate(req.params.id,
+        { Approval: "Rejected" }, null, function (err, docs) {
+            if (err) {
+                console.log(err);
+            }
+            else {
+                res.redirect('/admindashboard');
+                console.log("Original Doc : ", docs);
+            }
+        });
+    
+
+});
+
 
 
 
