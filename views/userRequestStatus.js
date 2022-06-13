@@ -20,6 +20,7 @@ function AddButtons()
             btn.innerText = "Upload";
             btn.classList.add("btn");
             btn.classList.add("btn-dark");
+            btn.type = "button";
             // btn.addEventListener()
             col.appendChild(btn);
         }

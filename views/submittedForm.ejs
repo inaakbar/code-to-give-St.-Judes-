@@ -129,7 +129,7 @@
     <!-- <h1 class="text-center"><%= form.name%></h1> -->
     <div class="container">
         <table class="table table-bordered" id="statusTable">
-            <!-- <tbody>
+            <tbody>
                 <tr>
                     <th>UID:</th>
                     <td>U781</td>
@@ -154,13 +154,13 @@
                     <th>Amount Needed in Rs.:</th>
                     <td>10000</td>
                   </tr>
-                  <tr>
+                  <!-- <tr>
                     <th>Add other fields if we get the time</th>
                     <td>10000</td>
-                  </tr>
+                  </tr> -->
                   
-            </tbody> -->
-            <tbody>
+            </tbody>
+            <!-- <tbody>
                 <tr>
                     <th>UID:</th>
                     <td> <%= form.uid %> </td>
@@ -185,8 +185,13 @@
                     <th>Amount Needed in Rs.:</th>
                     <td><%= form.amount %></td>
                   </tr>
-            </tbody>
+            </tbody> -->
           </table>
+          <div class="container text-center">
+            <button type="submit" class="btn btn-dark">Accept</button>
+            <button type="submit" class="btn btn-dark">Reject</button>
+            <button type="submit" class="btn btn-dark">Submit</button>
+          </div>
     </div>
 
     <!-- <button onclick="f3()">Next</button> -->
