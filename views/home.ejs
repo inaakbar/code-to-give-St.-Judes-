@@ -1,242 +1,213 @@
 <!DOCTYPE html>
 <html lang="en">
-
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home Page</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
-      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous" />
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
-      crossorigin="anonymous"></script>
-      <link rel="stylesheet" href="/public/style/style.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="style/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    />
   </head>
-  <script type="text/javascript" src="multilang.js"></script>
-  <script type="text/javascript" src="language-change.js"></script>
-  <script type="text/javascript">
-    var multilang;
-    var item = localStorage.getItem("global_lang")
-    //if(item)
-    //localStorage.setItem('global_lang', "en");
-    function onLoad() {
-      console.log("lang selected", item)
-      // create object, load JSON file, default to 'nl', and callback to initList when ready loading
-      multilang = new MultiLang('languages.json', item, this.initList);
-
-      // alternatively
-      //multilang = new MultiLang('languages.json', null, this.initList); // default to browser language
-      //multilang = new MultiLang('languages.json'); // only load JSON, no callback
-    }
-    function langSelectChange(sel) {
-      // console.log(document.getElementById("lang").value);
-      // switch to selected language code
-      // global_lang=sel.value;
-      //console.log("Global_variable=", global_lang)
-      localStorage.setItem('global_lang', sel.value);
-      multilang.setLanguage(sel.value);
-      item = localStorage.getItem("global_lang")
-      console.log(item)
-      // initList()
-      // refresh labels
-      // multilang = new MultiLang('languages.json', item, this.initList);
-      refreshLabels();
-      //changelist()
-    }
-    //  function langSelectChange2() {
-    //    var x=document.getElementById("lang").value
-    //      console.log(document.getElementById("lang").value);
-    //     // switch to selected language code
-    //     // global_lang=sel.value;
-    //     //console.log("Global_variable=", global_lang)
-    //     localStorage.setItem('global_lang', sel.value);
-    //     multilang.setLanguage(x);
-    //     item = localStorage.getItem("global_lang")
-    //     console.log(item)
-    //     // refresh labels
-    //     refreshLabels();
-    //   }
-
-    function initList() {
-      // get language list element
-      var list = document.getElementsByName("listlanguages")[0];
-      // clear all options
-      list.options.length = 0;
-      item = localStorage.getItem("global_lang")
-      var cnt = 1;
-      // add all available languages
-      for (var key in multilang.phrases) {
-        // create new language option
-        var lang = document.createElement("option");
-        lang.value = key;
-        lang.innerHTML = multilang.phrases[key]['langdesc'];
-        console.log("lang", item)
-        console.log(cnt)
-        // if (item == "hn" && cnt == 1)
-        //   lang.innerHTML = "अंग्रेज़ी";
-        // if (item == "hn" && cnt == 2)
-        //   lang.innerHTML = "हिन्दी";
-        cnt = cnt + 1;
-        // append to select element
-        list.appendChild(lang);
-      }
-
-      // refreshLabels();
-    }
-    function changelist() {
-      console.log("hello");
-      var list1 = document.getElementsById("list");
-      for (var val in list.length) {
-        console.log(val.options.value);
-      }
-    }
-
-    function refreshLabels() {
-
-      // Basically do the following for all document elements:
-      //document.getElementById("Options").textContent = multilang.get("Options");
-
-      // loop through all document elements
-      var allnodes = document.body.getElementsByTagName("*");
-
-      for (var i = 0, max = allnodes.length; i < max; i++) {
-        // get id current elements
-        var idname = allnodes[i].id;
-        // if id exists, set get id current elements
-        if (idname != '' && idname != 'contactUs' && idname != "toggleMobileMenu") {
-          allnodes[i].textContent = multilang.get(idname);
-        };
-      };
-    }
-  </script>
-
-  <body id="homeBody" onload="onLoad()">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <body id="homeBody">
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
       <div class="container">
-        <form>
-          <button type="submit" name="contactUs" formaction="/" class="btn btn-outline-light btn-lg nav-btn">
-            <img src="/public/logo-removebg.png" alt="logo" width="45" height="45" class="d-inline-block align-top" />
-            <span id="logo" class="logoSpan">St. Judes for Life</span>
-          </button>
-        </form>
-        <button class="navbar-toggler nav-btn" type="button" data-bs-toggle="collapse" data-bs-target="#toggleMobileMenu"
-          aria-controls="toggleMobileMenu" aria-expanded="false" aria-label="Toggle navigation">
+          <form action="" method="post">
+              <button type="submit" name="contactUs" formaction="/"
+               class="btn btn-outline-light btn-lg nav-btn"
+              >
+                <img
+                  src="/public/logo-removebg.png"
+                  alt="logo"
+                  width="45"
+                  height="45"
+                  class="d-inline-block align-top"
+                />
+                <span class="logoSpan">St. Judes for Life</span>
+              </button>
+          </form>
+        <button
+          class="navbar-toggler nav-btn"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#toggleMobileMenu"
+          aria-controls="toggleMobileMenu"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="toggleMobileMenu">
-          <form action="" method="post" class="navbar-form">
-            <ul class="navbar-nav ms-auto text-center">
-              <li class="nav-item">
-                <!-- <a href="home.ejs" class="nav-link active">About Us</a> -->
-                <button id="home" type="submit" name="home" formaction="/" class="btn btn-outline-light nav-btn">
-                  Home
-                </button>
-              </li>
-              <li class="nav-item">
-                <!-- <a href="home.ejs" class="nav-link active">About Us</a> -->
-                <button id="about-us" type="submit" name="aboutUs" formaction="/" class="btn btn-outline-light nav-btn">
-                  About Us
-                </button>
-              </li>
-              <li class="nav-item">
-                <button id="contact-us" type="submit" name="contactUs" formaction="/" class="btn btn-outline-light nav-btn">
-                  Contact Us
-                </button>
-              </li>
-              <li class="nav-item dropdown">
-                <select style="padding: 10px; background-color:white; border:none;" id="selectLang"  name="listlanguages" onchange="langSelectChange(this)">
-                </select>
-          </form>
-          </li>
+            <form  class="navbar-form" >
+                <ul class="navbar-nav ms-auto text-center">
+                  <li class="nav-item">
+                    <!-- <a href="home.ejs" class="nav-link active">About Us</a> -->
+                    <button type="submit" name="home" formaction="/"
+                        class="btn btn-outline-light nav-btn"
+                    >
+                        Home
+                    </button>
+                  </li>
+                  <li class="nav-item">
+                    <!-- <a href="home.ejs" class="nav-link active">About Us</a> -->
+                    <button type="submit" name="aboutUs" formaction="/"
+                        class="btn btn-outline-light nav-btn"
+                    >
+                        About Us
+                    </button>
+                  </li>
+                  <li class="nav-item">
+                    <button type="submit" name="contactUs" formaction="/"
+                        class="btn btn-outline-light nav-btn"
+                    >
+                        Contact Us
+                    </button>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <!-- <a
+                      href="#"
+                      class="nav-link dropdown-toggle"
+                      id="navbarDropdown"
+                      role="button"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                    >
+                      Languages
+                    </a> -->
+                   
+                    <button
+                      href="#"
+                      class="dropdown-toggle btn btn-outline-light nav-btn"
+                      id="navbarDropdown"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                    >
+                      Languages
+                    </button>
+
+                    <ul
+                      class="dropdown-menu text-center bg-dark"
+                      aria-labelledby="navbarDropdown" name="lang"
+                    >
+                   
+                        <li>
+                            <button type="submit" id="en" name="English" formaction="/" 
+                            class="btn btn-outline-light nav-btn"
+                        >
+                            English
+                        </button>
+                        </li>
+                        
+                        <li>
+                            <button type="submit" id="hi" name="Hindi" formaction="/" formmethod="post"
+                            class="btn btn-outline-light nav-btn"
+                        >
+                        Hindi
+                        </button>
+                        </li>
+                       
+                      
+                    </ul>
+            </form>
+            </li>
           </ul>
         </div>
       </div>
     </nav>
-
-
+    
     <div class="text-center HomeLogin">
-      <form class="loginForm">
-        <div class="mx-auto my-5">
-          <h2 id="main-login" class="text-center">Login</h2>
-          <div class="d-flex align-items-center justify-content-center m-4">
-            <button type="submit" name="admin" class="btn btn-outline-dark btn-lg" formaction="/userlogin" formmethod="get"
-              id="user-login">
-              Login as User
-            </button>
-          </div>
-          <div class="d-flex align-items-center justify-content-center m-4">
-            <button id="admin-login" type="submit" name="user" 
-              formaction="/adminlogin" formmethod="get" class="btn btn-outline-dark btn-lg">
-              Login as Admin
-            </button>
-          </div>
-        </div>
-      </form>
+        <form class="loginForm">
+            <div class="mx-auto my-5">
+              <h2 class="text-center"> Login </h2>
+              <div class="d-flex align-items-center justify-content-center m-4">
+                <button type="submit" name="admin" formaction="/userlogin" formmethod="get"
+                class="btn btn-outline-dark btn-lg"
+                >
+                  Login as User 
+                </button>
+              </div>
+              <div class="d-flex align-items-center justify-content-center m-4">
+                <button type="submit" name="user" formaction="/adminlogin" formmethod="get"
+                    class="btn btn-outline-dark btn-lg"
+                >
+                  Login as Admin 
+                </button>
+              </div>
+            </div>
+        </form>
     </div>
+
 
     <div id="contactUs">
-      <h1>Contact Us</h1>
-      <div class="row">
-        <div id="address1" class="col">
-          <!-- <i  class="fa-solid fa-location-dot fa-xl"></i> -->
-          St. Jude India
-          ChildCare Centres
-          Cotton Green Campus,
-          Ground Floor, Mumbai Port Trust Colony,
+        <h1>Contact Us</h1>
+        <div class="row">
+            <div class="col">
+                <i class="fa-solid fa-location-dot fa-xl"></i>
+                St. Jude India
+                ChildCare Centres
+                <br />
+                Cotton Green Campus,<br />
+                Ground Floor, Mumbai Port Trust Colony,<br />
+                ABC Colony (Rajas Nagar),<br />
+                Zakaria Bunder Road,<br />
+                Sewri, Mumbai 400015.
+            </div>
         </div>
-        <br />
-        <div id="address2">
-          ABC Colony (Rajas Nagar),
-          Zakaria Bunder Road,
-          Sewri, Mumbai 400015.</div>
-      </div>
-      <div class="row">
-        <div class="col">
-          <i class="fa-solid fa-phone fa-xl"></i>
-          +91 022 6666 3152
+        <div class="row">
+            <div class="col">
+                <i class="fa-solid fa-phone fa-xl"></i>
+                +91 022 6666 3152
+            </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col">
-          <i class="fa-solid fa-envelope fa-lg"></i>
-          contact@stjudechild.org
+        <div class="row">
+            <div class="col">
+                <i class="fa-solid fa-envelope fa-lg"></i>
+                contact@stjudechild.org
+            </div>
         </div>
-      </div>
-    </div>
     </div>
 
-    <script src="https://kit.fontawesome.com/e80646ae69.js" crossorigin="anonymous"></script>
-    <!-- <script type="module" src="i18.js"></script> -->
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
-      crossorigin="anonymous"></script>
-      <script>
-        if ('serviceWorker' in navigator) {
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"
+    ></script>
+   
+
+<script>
+  if ('serviceWorker' in navigator){
+
+console.log("service worker is working");
+navigator.serviceWorker.register('../service-worker.js').then(function(registration){
+  console.log('service worker registration succeeded:',registration);
+},
+function(error){
+console.log('service worker registration failed:',error);
+});
+}
+else{
+console.log('service workers are not supported.');
+}
   
-          console.log("service worker is working");
-          navigator.serviceWorker.register('../service-worker.js').then(function (registration) {
-            console.log('service worker registration succeeded:', registration);
-          },
-            function (error) {
-              console.log('service worker registration failed:', error);
-            });
-        }
-        else {
-          console.log('service workers are not supported.');
-        }
-  
-      </script>  
-      </body>
-      <script src="https://unpkg.com/localbase/dist/localbase.dev.js"></script>
-      <script>
-        let db = new Localbase('db');
-        let selectLang = document.getElementById('selectLang');
-        let selectoption = selectLang.options[selectLang.selectedIndex].value;
-        db.collection('global').add({
-          globallang : selectoption
-        })
-      </script>
+</script>
+
+  </body>
 </html>
