@@ -102,15 +102,13 @@
 }
 
 #contactUs {
-  background: rgb(238, 174, 202);
-  background: radial-gradient(
-    circle,
-    rgba(238, 174, 202, 1) 0%,
-    rgba(148, 187, 233, 1) 100%
-  );
   padding: 2rem;
   text-align: center;
   margin-top: 2rem;
+  background-color: #e0e0e0;
+}
+#contactUs>table>tr>td{
+  padding: 2em !important;
 }
 
 #UID, #password {
@@ -127,3 +125,15 @@
   width: 30% !important;
   font-size: 1.2rem;
 }
+#date{
+  background-color: black;
+  color: #e0e0e0;
+}
+#noti{
+  background-color: black;
+  color: #e0e0e0;
+}
+.stat{
+  background-color: white;
+  color:green;
+}              

@@ -59,7 +59,8 @@ const userSchema = new userdbSchema({
 });
 
 const formSchema = new formdbSchema({
-    formid:{type: Number} ,
+    formid: { type: Number },
+    name:String,
     uid: String,
     name: String,
     Gender: String,
@@ -94,14 +95,35 @@ const Form = con2.model("form", formSchema);
 passport.use(User.createStrategy());
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
-
-
+//console.log( await Form.collection.count());
 
 
 var l = "on";
 //language testing
+app.post('/', function (req, res) {
+    l = "off";
 
+    res.render('hindihome', {
+        Home: "होमपेज",
+        About: "हमारे बारे में",
+        Contact: "संपर्क करें",
+        Language: "भाषा",
+        Login: "लॉग इन करें",
+        Userl: "उपयोगकर्ता के रूप में लॉगिन करें",
+        adminl: "व्यवस्थापक के रूप में लॉगिन करें",
+        address1: "सेंट जूड इंडिया चाइल्ड केयर सेंटर कॉटन ग्रीन कैंपस,भूतल, मुंबई पोर्ट ट्रस्ट कॉलोनी,",
+        address2: "एबीसी कॉलोनी (राजस नगर), जकारिया बंदर रोड,सेवरी, मुंबई 400015",
+    });
 
+});
+var formno;
+Form.find({}).exec(function (err, form) {
+    if (err) { console.log(err); }
+    else {
+        console.log(form.length);
+        formno = form.length;
+    }
+});
 
 /*const newuser=new User({
     uid:"4567",
@@ -141,13 +163,12 @@ app.get("/adminlogin", function (req, res) {
 
 var uniid;
 var uniname;
+var uniuid;
 app.post("/userlogin", function (req, res) {
 
 
     User.findOne({ uid: req.body.uid }, function (err, foundUser) {
-        console.log(foundUser.name);
-        uniid=foundUser._id;
-        uniname=foundUser.name;
+
 
         if (err) {
             console.log(err);
@@ -157,7 +178,11 @@ app.post("/userlogin", function (req, res) {
         } else {
             if (foundUser) {
                 if (foundUser.password === req.body.password) {
-                    
+                    console.log(foundUser.name);
+                    uniid = foundUser._id;
+                    uniname = foundUser.name;
+                    uniuid=foundUser.uid;
+
                     res.render("userDashboard", {
                         User: foundUser.name,
                         Userid: foundUser._id
@@ -178,13 +203,13 @@ app.get("/userdash", function (req, res) {
     console.log(uniname);
     console.log(uniid);
 
-res.render("userDashboard",{
-    User: uniname,
-    Userid: uniid
-});
+    res.render("userDashboard", {
+        User: uniname,
+        Userid: uniid
+    });
 });
 app.get("/userdash/prevrequests/(:id)", function (req, res) {
-  
+
 
     User.findById(req.params.id, (err, user) => {
         console.log("user found", user);
@@ -198,7 +223,33 @@ app.get("/userdash/prevrequests/(:id)", function (req, res) {
         }
     }).clone().catch(e => { console.log(e); })
 });
+app.get("/userdash/notifications/(:id)", function (req, res) {
 
+
+    User.findById(req.params.id, (err, user) => {
+        console.log("user found", user);
+        if (user) {
+            Form.find({ uid:user.uid, Approval:"Approved" }).exec (function (err, form) {
+                res.render('usernotification', {
+                    formList: form
+                });
+            });
+        }
+    }).clone().catch(e => { console.log(e); })
+});
+
+app.get("/admindash/prevrequests/(:id)", function (req, res) {
+
+
+   
+            Form.find({ uid: req.params.id }, function (err, form) {
+                console.log("form uid", form);
+                res.render("adminRequestStatus", {
+                    formList: form,
+                });
+            });
+   
+});
 
 
 
@@ -218,7 +269,7 @@ app.get("/admindashboard", function (req, res) {
     });
 });
 app.get("/adminnotification", function (req, res) {
-    Form.find({Status:"New"}).exec(function (err, form) {
+    Form.find({ Status: "New" }).exec(function (err, form) {
         res.render('adminnotification', {
             formList: form
         });
@@ -279,7 +330,10 @@ app.post("/adminlogin", function (req, res) {
 
 //after entering user dashboard
 app.get("/mainform", function (req, res) {
-    res.render("main_form");
+    res.render("main_form",{
+        uid: uniuid,
+        Name: uniname,
+    });
 });
 
 
@@ -294,9 +348,10 @@ app.post("/mainform", function (req, res) {
     console.log(x);
 
 
+
     const newform = new Form({
-        formid: 5,
-        uid: req.body.data.uid,
+        formid: formno + 1,
+        uid: uniid,
         Needtype: req.body.data.needtype,
         Needcategory: req.body.data.needcategory,
         Amountneeded: req.body.data.amountNeeded,
@@ -328,12 +383,23 @@ app.post("/mainform", function (req, res) {
 
 
 app.get('/userdash/documentupload/(:id)', function (req, res) {
-    Form.findById(req.params.id, function (err, form) {
-        console.log("form uid");
-        res.render("uploadDoc", {
-            Form: form,
-        });
-    });
+
+
+    Form.findById(req.params.id, (err, form) => {
+
+        if (form) {
+            console.log("form found", form);
+            if (form.Approval === "Approved") {
+                console.log("form uid", form.Approval);
+                res.render("uploadDoc", {
+                    Form: form,
+                });
+            }
+            else {
+                res.redirect('/userdash');
+            }
+        }
+    })
 
 });
 
@@ -349,9 +415,10 @@ app.post('/userdash/documentupload/(:id)', upload.array("image"), function (req,
             else {
                 console.log("Original Doc : ", docs);
             }
-        });
+        })
 
-        res.redirect('/userdash');
+        setInterval( res.redirect('/userdash'),1000);
+
 });
 
 
@@ -364,12 +431,12 @@ app.get('/admindashboard/update/(:id)', function (req, res, next) {
     Form.findById(req.params.id, (err, form) => {
         console.log("user found", form);
         if (form) {
-           
-                console.log("form uid", form);
-                res.render("edusubmittedform", {
-                    form: form,
-                });
-            
+
+            console.log("form uid", form);
+            res.render("edusubmittedform", {
+                form: form,
+            });
+
         }
     }).clone().catch(e => { console.log(e); })
 
@@ -378,7 +445,7 @@ app.get('/admindashboard/update/(:id)', function (req, res, next) {
 app.get('/admindashboard/updateformandapprove/(:id)', function (req, res, next) {
     console.log("fetching id to approve");
     Form.findByIdAndUpdate(req.params.id,
-        { Approval: "Approved",Status:"Seen"}, null, function (err, docs) {
+        { Approval: "Approved", Status: "Seen" }, null, function (err, docs) {
             if (err) {
                 console.log(err);
             }
@@ -387,14 +454,14 @@ app.get('/admindashboard/updateformandapprove/(:id)', function (req, res, next) 
                 console.log("Original Doc : ", docs);
             }
         });
-    
+
 
 });
 ///toreject
 app.get('/admindashboard/updateformandreject/(:id)', function (req, res, next) {
     console.log("fetching id to reject");
     Form.findByIdAndUpdate(req.params.id,
-        { Approval: "Rejected",Status:"Seen"}, null, function (err, docs) {
+        { Approval: "Rejected", Status: "Seen" ,Doc:"NA"}, null, function (err, docs) {
             if (err) {
                 console.log(err);
             }
@@ -403,7 +470,7 @@ app.get('/admindashboard/updateformandreject/(:id)', function (req, res, next) {
                 console.log("Original Doc : ", docs);
             }
         });
-    
+
 
 });
 
@@ -430,3 +497,14 @@ app.listen(4000, function () {
     console.log("server is running on port 4000");
 });
 
+/*  Form.findById(req.params.id, function (err, form) {
+       if (form.Approval === "Approved") {
+           console.log("form uid");
+        res.render("uploadDoc", {
+               Form: form,
+           });
+       }
+       else {
+           res.redirect('/userdash');
+       }
+   });*/

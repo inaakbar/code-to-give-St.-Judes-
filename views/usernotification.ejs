@@ -10,8 +10,8 @@
       integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="style/style.css" />
-    <link rel="stylesheet" href="style/user.css" />
+    <link rel="stylesheet" href="/public/style/style.css" />
+    <link rel="stylesheet" href="/public/style/user.css" />
     <!-- <link rel="stylesheet" href="/public/style/style2.css"> -->
     
   </head>
@@ -32,7 +32,7 @@
               height="45"
               class="d-inline-block align-top"
             />
-            <span class="logoSpan">Admin Dashboard</span>
+            <span class="logoSpan">User Dashboard</span>
           </button>
         </form>
         <button
@@ -55,10 +55,10 @@
                 <button
                   type="submit"
                   name="home"
-                  formaction="/admindashboard" formmethod="get"
+                  formaction="/userdash" formmethod="get"
                   class="btn btn-outline-light nav-btn"
                 >
-                  All Requests
+                  Home
                 </button>
               </li>
               <li class="nav-item">
@@ -163,7 +163,7 @@
       <table class="table table-bordered" id="statusTable">
         <thead>
           <tr>
-            <th id="date" scope="col">Date</th>
+            <th id="noti" scope="col">Date</th>
             <th id="noti" scope="col">Notifications</th>
           </tr>
         </thead>
@@ -171,9 +171,10 @@
         <tbody>
           <% var x=1; %> 
           <% formList.forEach(form=>{ %>
-            <tr>
-                <td ><%= form.date.toISOString().slice(0,10) %></td>
-                <td class="stat"><%= form.Status %> Request by <%=form.uid%></td>
+            <tr> 
+                <%var date=new Date().toISOString().slice(0,10)%>
+                <td ><%=date%></td>
+                <td >Dear user, upload documents for your Request</td>
               
             </tr>
          <% })%>

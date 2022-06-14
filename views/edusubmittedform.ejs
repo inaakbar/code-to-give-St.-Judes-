@@ -34,7 +34,7 @@
                     <ul class="navbar-nav ms-auto text-center">
                         <li class="nav-item">
                             <!-- <a href="home.ejs" class="nav-link active">About Us</a> -->
-                            <button type="submit" name="home" formaction="/" class="btn btn-outline-light nav-btn">
+                            <button type="submit" name="home"  formaction="/admindashboard" formmethod="get" class="btn btn-outline-light nav-btn">
                                 All Requests
                             </button>
                         </li>
@@ -143,8 +143,10 @@
             </tbody>
         </table>
         <div class="container text-center">
+            <a type="button" class="btn btn-dark" href="/admindash/prevrequests/<%= form.uid%>">Previous Requests</a>
             <a type="button" class="btn btn-dark" href="/admindashboard/updateformandapprove/<%=form._id%>">Accept</a>
             <a type="button" class="btn btn-dark" href="/admindashboard/updateformandreject/<%=form._id%>">Reject</a>
+           
 
         </div>
     </div>

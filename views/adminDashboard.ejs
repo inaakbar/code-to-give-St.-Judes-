@@ -12,8 +12,8 @@
     />
     <link rel="stylesheet" href="style/style.css" />
     <link rel="stylesheet" href="style/user.css" />
-    <!-- <link rel="stylesheet" href="/public/style/style2.css"> -->
-    <script src="farhan/main.js"></script>
+    <!-- <link rel="stylesheet" href="/public/style/style.css"> -->
+   
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -126,8 +126,8 @@
     </nav>
 
     <h1 class="text-center">Requests Detail</h1>
-    <form id="filterForm">
-      <div class="text-center m-4">
+    <form id="filterForm" class="text-center">
+      <div class="m-4">
         <label for="">Filter : </label>
         <select
           class="form-select"
@@ -142,7 +142,7 @@
           <option value="Pending">New Requests</option>
         </select>
       </div>
-      <div class="text-center m-4" id="TypeofNeed">
+      <div class="m-4" id="TypeofNeed">
         <label for="">Type of Need : </label>
         <select  name="needtype"
           class="form-select"
@@ -157,7 +157,7 @@
           <option value="Counselling">Counselling</option>
         </select>
       </div>
-      <button type="submit" id="filterBtn" formaction="/admindashboard" formmethod="post">Filter</button>
+      <button type="submit" id="filterBtn" formaction="/admindashboard" formmethod="post" class="btn btn-dark btn-lg">Filter</button>
     </form>
     <div class="AdminContent text-center m-4">
       <div class="RequestTable">
@@ -166,10 +166,12 @@
             <tr>
               <th scope="col">S.no.</th>
               <th scope="col">UID</th>
-              <th scope="col">Name</th>
+              <th scope="col">Type</th>
+              <th scope="col">Need Category</th>
               <th scope="col">Status</th>
               <th scope="col">Document Status</th>
               <th scope="col">Action</th>
+              <th scope="col">Delete</th>
             </tr>
           </thead>
           
@@ -179,24 +181,23 @@
                    <tr>
               <td><%= x++ %>  </td>     
               <td><%= form.uid%>  </td>
-              <td><%= form.name%></td>
+              <td><%= form.Needtype%></td>
+              <td><%= form.Needcategory%></td>
               <td>
                 <label><%= form.Approval%>
-                  <input type="checkbox" name="" id="">
                 </label>
               </td>
               <td>
                 <label><%= form.Doc%>
-                  <input type="checkbox" name="" id="">
                 </label>
               </td>
               <td>
-                <a type="button" class="btn btn-outline-dark" href="/admindashboard/update/<%= form._id%>">
+                <a type="button" class="btn btn-outline-success" href="/admindashboard/update/<%= form._id%>">
                   Open Form
                 </a>
               </td>
               <td>
-                <a type="button" class="btn btn-outline-dark" href="/admindashboard/delete/<%= form._id%>">
+                <a type="button" class="btn btn-outline-danger" href="/admindashboard/delete/<%= form._id%>">
                   Delete Form
                 </a>
               </td>
@@ -207,7 +208,7 @@
         </table>
       </div>
       <div>
-        <button class="btn btn-outline-dark" id="exportBtn">Export</button>
+        <button class="btn btn-outline-dark btn-lg" id="exportBtn">Export</button>
       </div>
     </div>
 
@@ -215,7 +216,6 @@
 
     <!-- <button onclick="f3()">Next</button> -->
     <script src="./views/adminDashboard.js"></script>
-    <script src="/varun/script.js"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
