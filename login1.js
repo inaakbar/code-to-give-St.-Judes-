@@ -98,24 +98,7 @@ passport.deserializeUser(User.deserializeUser());
 //console.log( await Form.collection.count());
 
 
-var l = "on";
-//language testing
-app.post('/', function (req, res) {
-    l = "off";
 
-    res.render('hindihome', {
-        Home: "होमपेज",
-        About: "हमारे बारे में",
-        Contact: "संपर्क करें",
-        Language: "भाषा",
-        Login: "लॉग इन करें",
-        Userl: "उपयोगकर्ता के रूप में लॉगिन करें",
-        adminl: "व्यवस्थापक के रूप में लॉगिन करें",
-        address1: "सेंट जूड इंडिया चाइल्ड केयर सेंटर कॉटन ग्रीन कैंपस,भूतल, मुंबई पोर्ट ट्रस्ट कॉलोनी,",
-        address2: "एबीसी कॉलोनी (राजस नगर), जकारिया बंदर रोड,सेवरी, मुंबई 400015",
-    });
-
-});
 var formno;
 Form.find({}).exec(function (err, form) {
     if (err) { console.log(err); }
