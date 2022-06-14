@@ -41,11 +41,11 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 
-mongoose.connect("mongodb+srv://project2:mshackathon@cluster1.e6cet.mongodb.net/formdb", { useNewUrlParser: true });
+mongoose.connect("mongodb+srv://project2:password.mongodb.net/formdb", { useNewUrlParser: true });
 var con1 = new mongoose.Mongoose();
 var con2 = new mongoose.Mongoose();
-con1.connect('mongodb+srv://project2:mshackathon@cluster1.e6cet.mongodb.net/userdb', { useNewUrlParser: true });
-con2.connect('mongodb+srv://project2:mshackathon@cluster1.e6cet.mongodb.net/formdb', { useNewUrlParser: true });
+con1.connect('mongodb+srv://project2:password.mongodb.net/userdb', { useNewUrlParser: true });
+con2.connect('mongodb+srv://project2:password.mongodb.net/formdb', { useNewUrlParser: true });
 const userdbSchema = con1.Schema;
 const formdbSchema = con2.Schema;
 
